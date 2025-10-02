@@ -1,101 +1,45 @@
-Climascope
+# Climascope
+
 A full-stack weather application built with Django that provides real-time weather data, forecasting, and personalized alerts.
-Features
 
-Real-time weather data for any location
-5-day weather forecasts
-User authentication and profiles
-Favorite cities management
-Temperature analytics and charts
-Customizable weather alerts
-Email notifications
-Responsive design
+## Features
 
-Tech Stack
+- Real-time weather data for any location
+- 5-day weather forecasts
+- User authentication and profiles
+- Favorite cities management
+- Temperature analytics and charts
+- Customizable weather alerts
+- Email notifications
+- Responsive design
 
-Backend: Django 3.1.6, Python 3.13
-Frontend: HTML5, CSS3, JavaScript, Bootstrap 5
-APIs: OpenWeatherMap API, Google Custom Search API
-Database: SQLite (dev) / PostgreSQL (prod)
+## Tech Stack
 
-Installation
+- **Backend**: Django 3.1.6, Python 3.13
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 5
+- **APIs**: OpenWeatherMap API, Google Custom Search API
+- **Database**: SQLite (dev) / PostgreSQL (prod)
 
-Clone the repository
+## Installation
 
-bashgit clone https://github.com/yourusername/climascope.git
-cd climascope
-
-Create virtual environment
-
-bashpython -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-Install dependencies
-
-bashpip install -r requirements.txt
-
-Set up environment variables
-Create a .env file with:
-
-WEATHER_API_KEY=your_openweathermap_key
-GOOGLE_API_KEY=your_google_key
-SEARCH_ENGINE_ID=your_search_engine_id
-SECRET_KEY=your_django_secret_key
-
-Run migrations
-
-bashpython manage.py migrate
-
-Create superuser
-
-bashpython manage.py createsuperuser
-
-Run the server
-
-bashpython manage.py runserver
+1. Clone the repository
+2. Create virtual environment: `python -m venv venv`
+3. Activate it: `source venv/bin/activate` (Windows: `venv\Scripts\activate`)
+4. Install dependencies: `pip install -r requirements.txt`
+5. Run migrations: `python manage.py migrate`
+6. Create superuser: `python manage.py createsuperuser`
+7. Run server: `python manage.py runserver`
 
 Visit http://127.0.0.1:8000/
 
-Usage
+## API Keys Required
 
-Register for an account at /signup/
-Log in at /login/
-Search for weather at /weather/
-View analytics at /dashboard/
-Manage settings at /settings/
+- OpenWeatherMap API
+- Google Custom Search API
 
-API Keys
-Get your API keys from:
+## Usage
 
-OpenWeatherMap: https://openweathermap.org/api
-Google Custom Search: https://console.cloud.google.com/
-
-Configuration
-Edit weatherproject/settings.py for email configuration:
-pythonEMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'your-email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-app-password'
-Key Models
-
-UserProfile: User settings and preferences
-FavoriteCity: Saved locations
-WeatherHistory: Search history
-WeatherAlert: Notification system
-
-Deployment
-For production:
-
-Set DEBUG = False
-Configure ALLOWED_HOSTS
-Use PostgreSQL database
-Set up static files with collectstatic
-Use Gunicorn + Nginx
-
-Contributing
-
-Fork the repository
-Create a feature branch
-Commit your changes
-Push to the branch
-Open a Pull Request
+1. Register at `/signup/`
+2. Login at `/login/`
+3. Search weather at `/weather/`
+4. View analytics at `/dashboard/`
