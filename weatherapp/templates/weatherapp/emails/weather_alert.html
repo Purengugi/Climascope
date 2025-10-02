@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Alert - Climascope</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .alert-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .urgent {
+            background: #ff4757;
+        }
+        .normal {
+            background: #3742fa;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .alert-box {
+            background: #fff5f5;
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .alert-box.normal-alert {
+            background: #f0f9ff;
+            border-left-color: #3742fa;
+        }
+        .weather-info {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .city-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        .temperature {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        .description {
+            font-size: 18px;
+            color: #718096;
+            text-transform: capitalize;
+        }
+        .footer {
+            background: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px 15px;
+            }
+            .temperature {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌤️ Climascope Weather Alert</h1>
+            <div class="alert-badge {% if is_urgent %}urgent{% else %}normal{% endif %}">
+                {% if is_urgent %}🚨 URGENT ALERT{% else %}📢 Weather Update{% endif %}
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="alert-box {% if not is_urgent %}normal-alert{% endif %}">
+                <h3 style="margin-top: 0; color: {% if is_urgent %}#e53e3e{% else %}#3182ce{% endif %};">
+                    Weather Alert for {{ alert.city_name }}
+                </h3>
+                <p style="font-size: 16px; margin-bottom: 0;">{{ alert.message }}</p>
+            </div>
+            
+            <div class="weather-info">
+                <div class="city-name">{{ alert.city_name }}</div>
+                {% if alert.temperature %}
+                    <div class="temperature">{{ alert.temperature|floatformat:1 }}°C</div>
+                {% endif %}
+                {% if alert.weather_condition %}
+                    <div class="description">{{ alert.weather_condition }}</div>
+                {% endif %}
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="#" class="btn">View Full Forecast</a>
+                <a href="#" class="btn">Manage Alert Settings</a>
+            </div>
+            
+            <div style="background: #edf2f7; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="margin-top: 0; color: #4a5568;">💡 Stay Safe</h4>
+                <p style="margin-bottom: 0; color: #718096; font-size: 14px;">
+                    {% if is_urgent %}
+                        Please take appropriate precautions and stay updated with local weather services.
+                    {% else %}
+                        Keep an eye on the weather conditions and plan accordingly.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This alert was sent to {{ user.email }} because you have weather notifications enabled for {{ alert.city_name }}.</p>
+            <p>
+                <a href="#" style="color: #667eea;">Manage Notification Preferences</a> |
+                <a href="#" style="color: #667eea;">Unsubscribe</a>
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Climascope</strong> - Your Personal Weather Companion<br>
+                © {{ "now"|date:"Y" }} Climascope. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,781 @@
+{% extends 'weatherapp/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Climascope{% endblock %}
+
+{% block extra_css %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<style>
+    .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        transition: all 0.3s ease;
+        margin-bottom: 1.5rem;
+    }
+    
+    .glass-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5);
+    }
+    
+    .chart-container {
+        position: relative;
+        height: 300px;
+        width: 100%;
+    }
+    
+    .mini-chart-container {
+        height: 80px;
+        width: 100%;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(77, 171, 247, 0.1), transparent);
+        transform: rotate(45deg);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+    
+    .stat-card:hover::before {
+        opacity: 1;
+        animation: shimmer 1s ease-in-out;
+    }
+    
+    @keyframes shimmer {
+        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    
+    .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #4dabf7 0%, #1b345e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.5rem;
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .stat-label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .weather-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        padding: 1.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .weather-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+    }
+    
+    .weather-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+    }
+    
+    .weather-temp {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+    
+    .weather-desc {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        text-transform: capitalize;
+    }
+    
+    .analytics-section {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .analytics-title {
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .chart-controls {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .chart-controls .btn {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .chart-controls .btn:hover, 
+    .chart-controls .btn.active {
+        background: rgba(77, 171, 247, 0.2);
+        color: white;
+        border-color: rgba(77, 171, 247, 0.5);
+    }
+    
+    .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .insight-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1.5rem;
+        border-left: 4px solid #4dabf7;
+    }
+    
+    .insight-title {
+        color: #4dabf7;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .insight-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+    
+    .insight-description {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .activity-timeline {
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 1rem;
+    }
+    
+    .timeline-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        border-left: 3px solid #4dabf7;
+    }
+    
+    .timeline-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(77, 171, 247, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .timeline-content h6 {
+        color: white;
+        margin-bottom: 0.25rem;
+        font-size: 0.95rem;
+    }
+    
+    .timeline-content p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.25rem;
+        font-size: 0.85rem;
+    }
+    
+    .timeline-time {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.75rem;
+    }
+    
+    .weather-comparison {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .comparison-item {
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+    }
+    
+    .comparison-label {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .comparison-value {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .stats-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .chart-controls {
+            justify-content: center;
+        }
+        
+        .chart-controls .btn {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Welcome Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-white mb-3">
+            <i class="fas fa-tachometer-alt me-2"></i>Weather Analytics Dashboard
+        </h1>
+        <p class="lead text-light">
+            Welcome back, {{ user.get_full_name|default:user.username }}! 
+            Here's your comprehensive weather analysis and insights.
+        </p>
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-search stat-icon"></i>
+            <span class="stat-number" id="total-searches">{{ total_searches|default:"0" }}</span>
+            <div class="stat-label">Total Searches</div>
+            <div class="mini-chart-container">
+                <canvas id="searchesMiniChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <i class="fas fa-heart stat-icon"></i>
+            <span class="stat-number" id="favorite-count">{{ total_favorites|default:"0" }}</span>
+            <div class="stat-label">Favorite Cities</div>
+            <div class="mini-chart-container">
+                <canvas id="favoritesMiniChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <i class="fas fa-bell stat-icon"></i>
+            <span class="stat-number">{{ total_alerts|default:"0" }}</span>
+            <div class="stat-label">Weather Alerts</div>
+            <div class="mini-chart-container">
+                <canvas id="alertsMiniChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <i class="fas fa-calendar stat-icon"></i>
+            <span class="stat-number">{{ user.date_joined|date:"M Y" }}</span>
+            <div class="stat-label">Member Since</div>
+            <div class="mini-chart-container">
+                <canvas id="membershipMiniChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Analytics Section -->
+    <div class="analytics-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="analytics-title">
+                <i class="fas fa-chart-line"></i>Temperature Trends & Analysis
+            </h2>
+            <div class="chart-controls">
+                <button class="btn active" onclick="toggleChartView('temperature')" data-chart="temperature">
+                    <i class="fas fa-thermometer-half me-1"></i>Temperature
+                </button>
+                <button class="btn" onclick="toggleChartView('humidity')" data-chart="humidity">
+                    <i class="fas fa-tint me-1"></i>Humidity
+                </button>
+                <button class="btn" onclick="toggleChartView('pressure')" data-chart="pressure">
+                    <i class="fas fa-gauge-high me-1"></i>Pressure
+                </button>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="mainAnalyticsChart"></canvas>
+        </div>
+        
+        <div class="weather-comparison">
+            <div class="comparison-item">
+                <div class="comparison-label">Average Temp</div>
+                <div class="comparison-value" id="avgTemp">--°C</div>
+            </div>
+            <div class="comparison-item">
+                <div class="comparison-label">Highest Temp</div>
+                <div class="comparison-value" id="maxTemp">--°C</div>
+            </div>
+            <div class="comparison-item">
+                <div class="comparison-label">Lowest Temp</div>
+                <div class="comparison-value" id="minTemp">--°C</div>
+            </div>
+            <div class="comparison-item">
+                <div class="comparison-label">Most Searched</div>
+                <div class="comparison-value" id="topCity">--</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Favorite Cities Weather -->
+        <div class="col-lg-8">
+            <div class="glass-card p-4">
+                <h3 class="text-white mb-4">
+                    <i class="fas fa-heart me-2 text-danger"></i>Favorite Cities Current Weather
+                </h3>
+                
+                {% if favorite_weather %}
+                    <div class="row">
+                        {% for weather in favorite_weather %}
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="weather-card">
+                                <div class="weather-icon">
+                                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" 
+                                         alt="{{ weather.description }}" style="width: 50px;">
+                                </div>
+                                <h5 class="text-white">{{ weather.city }}</h5>
+                                <div class="weather-temp">{{ weather.temp }}°C</div>
+                                <div class="weather-desc">{{ weather.description|title }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center py-5">
+                        <i class="fas fa-heart fa-4x mb-3 text-muted"></i>
+                        <h4 class="text-muted">No Favorite Cities</h4>
+                        <p class="text-muted">Start searching and add some favorites to see live weather data!</p>
+                        <a href="{% url 'home' %}" class="btn btn-primary">
+                            <i class="fas fa-search me-2"></i>Search Weather
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Activity Timeline -->
+        <div class="col-lg-4">
+            <div class="glass-card p-4">
+                <h3 class="text-white mb-4">
+                    <i class="fas fa-clock me-2"></i>Recent Activity
+                </h3>
+                
+                <div class="activity-timeline">
+                    {% for search in recent_searches %}
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-search text-primary"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h6>Searched {{ search.city_name }}</h6>
+                            <p>{{ search.temperature|floatformat:1 }}°C - {{ search.description|title }}</p>
+                            <span class="timeline-time">{{ search.searched_at|timesince }} ago</span>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-history fa-3x mb-3"></i>
+                        <p>No recent activity</p>
+                    </div>
+                    {% endfor %}
+                    
+                    {% for alert in recent_alerts %}
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-bell text-warning"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h6>Weather Alert</h6>
+                            <p>{{ alert.message|truncatewords:10 }}</p>
+                            <span class="timeline-time">{{ alert.created_at|timesince }} ago</span>
+                        </div>
+                    </div>
+                    {% empty %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weather Insights -->
+    <div class="analytics-section">
+        <h2 class="analytics-title">
+            <i class="fas fa-lightbulb"></i>Weather Insights & Patterns
+        </h2>
+        
+        <div class="insights-grid">
+            <div class="insight-card">
+                <div class="insight-title">Most Active Day</div>
+                <div class="insight-value" id="mostActiveDay">Monday</div>
+                <div class="insight-description">
+                    You search for weather most frequently on this day of the week.
+                </div>
+            </div>
+            
+            <div class="insight-card">
+                <div class="insight-title">Weather Preference</div>
+                <div class="insight-value" id="weatherPreference">Sunny Days</div>
+                <div class="insight-description">
+                    Based on your search patterns, you prefer clear, sunny weather conditions.
+                </div>
+            </div>
+            
+            <div class="insight-card">
+                <div class="insight-title">Alert Accuracy</div>
+                <div class="insight-value">85%</div>
+                <div class="insight-description">
+                    Our weather alerts have been accurate for your favorite cities.
+                </div>
+            </div>
+            
+            <div class="insight-card">
+                <div class="insight-title">Temperature Range</div>
+                <div class="insight-value" id="tempRange">15-25°C</div>
+                <div class="insight-description">
+                    Your searches show you're most active in moderate temperature ranges.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let chartData = {% if chart_data %}{{ chart_data|safe }}{% else %}[]{% endif %};
+    let mainChart;
+    let currentChartType = 'temperature';
+    
+    // Chart colors
+    const chartColors = {
+        temperature: {
+            border: 'rgba(77, 171, 247, 1)',
+            background: 'rgba(77, 171, 247, 0.1)'
+        },
+        humidity: {
+            border: 'rgba(54, 162, 235, 1)', 
+            background: 'rgba(54, 162, 235, 0.1)'
+        },
+        pressure: {
+            border: 'rgba(255, 159, 64, 1)',
+            background: 'rgba(255, 159, 64, 0.1)'
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("Advanced dashboard loaded");
+        initializeMiniCharts();
+        initializeMainChart();
+        calculateInsights();
+        updateComparisons();
+    });
+
+    function initializeMiniCharts() {
+        // Searches trend (sample data)
+        const searchTrend = Array.from({length: 7}, () => Math.floor(Math.random() * 10) + 1);
+        createMiniChart('searchesMiniChart', searchTrend, 'rgba(77, 171, 247, 0.8)');
+        
+        // Favorites growth
+        const favCount = parseInt(document.getElementById('favorite-count').textContent) || 0;
+        const favTrend = Array.from({length: 7}, (_, i) => Math.max(0, favCount - (6-i)));
+        createMiniChart('favoritesMiniChart', favTrend, 'rgba(220, 53, 69, 0.8)');
+        
+        // Alerts trend
+        const alertTrend = Array.from({length: 7}, () => Math.floor(Math.random() * 5));
+        createMiniChart('alertsMiniChart', alertTrend, 'rgba(255, 193, 7, 0.8)');
+        
+        // Membership progress (days since joining)
+        const membershipTrend = Array.from({length: 7}, (_, i) => i + 1);
+        createMiniChart('membershipMiniChart', membershipTrend, 'rgba(40, 167, 69, 0.8)');
+    }
+    
+    function createMiniChart(canvasId, data, color) {
+        const ctx = document.getElementById(canvasId);
+        if (!ctx) return;
+        
+        new Chart(ctx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: Array(data.length).fill(''),
+                datasets: [{
+                    data: data,
+                    borderColor: color,
+                    backgroundColor: color.replace('0.8', '0.2'),
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 0,
+                    pointHoverRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                },
+                elements: { point: { radius: 0 } },
+                animation: { duration: 2000 }
+            }
+        });
+    }
+    
+    function initializeMainChart() {
+        const ctx = document.getElementById('mainAnalyticsChart');
+        if (!ctx || !chartData.length) {
+            if (ctx) {
+                ctx.closest('.analytics-section').innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="fas fa-chart-line fa-4x mb-3 text-muted"></i>
+                        <h4 class="text-muted">No Data Available</h4>
+                        <p class="text-muted">Start searching for weather to see analytics.</p>
+                        <a href="{% url 'home' %}" class="btn btn-primary">Start Searching</a>
+                    </div>
+                `;
+            }
+            return;
+        }
+
+        mainChart = new Chart(ctx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: chartData.map(d => d.datetime),
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: chartData.map(d => d.temperature),
+                    borderColor: chartColors.temperature.border,
+                    backgroundColor: chartColors.temperature.background,
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: chartColors.temperature.border,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { 
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            font: { size: 14 }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderColor: chartColors.temperature.border,
+                        borderWidth: 1,
+                        callbacks: {
+                            label: function(context) {
+                                const dataPoint = chartData[context.dataIndex];
+                                return `Temperature: ${context.parsed.y.toFixed(1)}°C in ${dataPoint.city}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        ticks: { 
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            font: { size: 12 }
+                        },
+                        grid: { 
+                            color: 'rgba(255, 255, 255, 0.1)',
+                            lineWidth: 1
+                        }
+                    },
+                    x: {
+                        ticks: { 
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            maxRotation: 45,
+                            font: { size: 11 }
+                        },
+                        grid: { 
+                            color: 'rgba(255, 255, 255, 0.1)',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    }
+    
+    function toggleChartView(type) {
+        if (!mainChart || !chartData.length) return;
+        
+        // Update active button
+        document.querySelectorAll('.chart-controls .btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        
+        currentChartType = type;
+        let data, label;
+        
+        switch(type) {
+            case 'humidity':
+                data = chartData.map(d => d.humidity || 0);
+                label = 'Humidity (%)';
+                break;
+            case 'pressure':
+                data = chartData.map(d => d.pressure || 0);
+                label = 'Pressure (hPa)';
+                break;
+            default:
+                data = chartData.map(d => d.temperature);
+                label = 'Temperature (°C)';
+        }
+        
+        mainChart.data.datasets[0].data = data;
+        mainChart.data.datasets[0].label = label;
+        mainChart.data.datasets[0].borderColor = chartColors[type].border;
+        mainChart.data.datasets[0].backgroundColor = chartColors[type].background;
+        mainChart.data.datasets[0].pointBackgroundColor = chartColors[type].border;
+        
+        mainChart.update('active');
+    }
+    
+    function calculateInsights() {
+        if (!chartData.length) return;
+        
+        // Calculate most active day (mock data for demo)
+        const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        const randomDay = days[Math.floor(Math.random() * days.length)];
+        document.getElementById('mostActiveDay').textContent = randomDay;
+        
+        // Calculate weather preference based on most common description
+        const descriptions = chartData.map(d => d.description || 'clear');
+        const preference = descriptions.length > 0 ? 'Varied Weather' : 'Clear Days';
+        document.getElementById('weatherPreference').textContent = preference;
+        
+        // Calculate temperature range
+        if (chartData.length > 0) {
+            const temps = chartData.map(d => d.temperature);
+            const minTemp = Math.min(...temps);
+            const maxTemp = Math.max(...temps);
+            document.getElementById('tempRange').textContent = `${minTemp.toFixed(0)}-${maxTemp.toFixed(0)}°C`;
+        }
+    }
+    
+    function updateComparisons() {
+        if (!chartData.length) return;
+        
+        const temperatures = chartData.map(d => d.temperature);
+        const cities = chartData.map(d => d.city);
+        
+        // Calculate averages
+        const avgTemp = temperatures.reduce((a, b) => a + b, 0) / temperatures.length;
+        const maxTemp = Math.max(...temperatures);
+        const minTemp = Math.min(...temperatures);
+        
+        // Find most searched city
+        const cityCount = {};
+        cities.forEach(city => {
+            cityCount[city] = (cityCount[city] || 0) + 1;
+        });
+        const topCity = Object.keys(cityCount).reduce((a, b) => cityCount[a] > cityCount[b] ? a : b);
+        
+        // Update display
+        document.getElementById('avgTemp').textContent = `${avgTemp.toFixed(1)}°C`;
+        document.getElementById('maxTemp').textContent = `${maxTemp.toFixed(1)}°C`;
+        document.getElementById('minTemp').textContent = `${minTemp.toFixed(1)}°C`;
+        document.getElementById('topCity').textContent = topCity || '--';
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,1921 @@
+INFO 2025-09-19 21:51:31,056 autoreload 20484 6212 Watching for file changes with StatReloader
+INFO 2025-09-19 21:59:46,080 autoreload 11896 4388 Watching for file changes with StatReloader
+INFO 2025-09-19 22:04:16,679 autoreload 11896 4388 C:\Users\NGUGI\Weather-App-main\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-19 22:04:17,716 autoreload 16060 17200 Watching for file changes with StatReloader
+ERROR 2025-09-19 22:04:35,058 log 16060 6768 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: weatherapp_userprofile.email_notifications
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\Weather-App-main\weatherapp\views.py", line 135, in home
+    city = get_user_default_location(request.user)
+  File "C:\Users\NGUGI\Weather-App-main\weatherapp\views.py", line 106, in get_user_default_location
+    profile = UserProfile.objects.get(user=user)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: weatherapp_userprofile.email_notifications
+ERROR 2025-09-19 22:04:35,108 basehttp 16060 6768 "GET / HTTP/1.1" 500 149331
+WARNING 2025-09-19 22:04:35,992 log 16060 6768 Not Found: /favicon.ico
+WARNING 2025-09-19 22:04:35,992 basehttp 16060 6768 "GET /favicon.ico HTTP/1.1" 404 5847
+INFO 2025-09-19 22:07:53,304 basehttp 16060 6768 "GET / HTTP/1.1" 200 40358
+INFO 2025-09-19 22:08:00,253 basehttp 16060 6768 "GET /dashboard/ HTTP/1.1" 200 28102
+INFO 2025-09-19 22:08:24,989 basehttp 16060 6768 "GET /profile/ HTTP/1.1" 200 21818
+INFO 2025-09-19 22:08:25,143 basehttp 16060 6768 "GET /media/avatars/WIN_20240511_13_06_40_Pro.png HTTP/1.1" 304 0
+INFO 2025-09-19 22:08:44,706 basehttp 16060 6768 "POST /delete-avatar/ HTTP/1.1" 200 17
+INFO 2025-09-19 22:08:44,802 basehttp 16060 6768 "GET /profile/ HTTP/1.1" 200 21982
+INFO 2025-09-19 22:09:35,439 email_service 16060 6768 Account notification (profile_updated) sent to ngugipurityn@gmail.com
+INFO 2025-09-19 22:09:35,573 basehttp 16060 6768 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 22:09:35,831 basehttp 16060 6768 "GET /profile/ HTTP/1.1" 200 21973
+INFO 2025-09-19 22:09:42,023 email_service 16060 6768 Account notification (profile_updated) sent to ngugipurityn@gmail.com
+INFO 2025-09-19 22:09:42,044 basehttp 16060 6768 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 22:09:42,248 basehttp 16060 6768 "GET /profile/ HTTP/1.1" 200 21981
+ERROR 2025-09-19 22:10:37,940 log 16060 6768 Internal Server Error: /deactivate-account/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Weather-App-main\weatherapp\views.py", line 412, in deactivate_account
+    return render(request, 'weatherapp/auth/deactivate_account.html')
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: weatherapp/auth/deactivate_account.html
+ERROR 2025-09-19 22:10:37,943 basehttp 16060 6768 "GET /deactivate-account/ HTTP/1.1" 500 88839
+INFO 2025-09-19 22:11:22,164 basehttp 16060 6768 "GET /profile/ HTTP/1.1" 200 21646
+ERROR 2025-09-19 22:11:24,365 log 16060 6768 Internal Server Error: /delete-account/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Weather-App-main\weatherapp\views.py", line 430, in delete_account
+    return render(request, 'weatherapp/auth/delete_account.html')
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: weatherapp/auth/delete_account.html
+ERROR 2025-09-19 22:11:24,368 basehttp 16060 6768 "GET /delete-account/ HTTP/1.1" 500 88569
+INFO 2025-09-19 22:11:53,433 basehttp 16060 6768 "GET /deactivate-account/ HTTP/1.1" 200 9343
+INFO 2025-09-19 22:11:58,550 basehttp 16060 6768 "GET /profile/ HTTP/1.1" 200 21646
+INFO 2025-09-19 22:12:01,928 basehttp 16060 6768 "GET /delete-account/ HTTP/1.1" 200 13331
+INFO 2025-09-19 22:12:10,593 basehttp 16060 6768 "GET /deactivate-account/ HTTP/1.1" 200 9343
+INFO 2025-09-19 22:12:30,076 basehttp 16060 6768 "GET /deactivate-account/ HTTP/1.1" 200 9343
+INFO 2025-09-19 22:12:50,877 basehttp 16060 6768 "GET /delete-account/ HTTP/1.1" 200 13331
+INFO 2025-09-19 22:32:39,357 basehttp 16060 10560 "GET / HTTP/1.1" 200 40339
+INFO 2025-09-19 22:32:59,224 basehttp 16060 10560 "GET /dashboard/ HTTP/1.1" 200 28096
+INFO 2025-09-19 22:33:36,736 basehttp 16060 10560 "GET /profile/ HTTP/1.1" 200 21637
+INFO 2025-09-19 22:33:44,513 basehttp 16060 10560 "GET /deactivate-account/ HTTP/1.1" 200 9343
+INFO 2025-09-19 22:33:48,556 basehttp 16060 10560 "GET /delete-account/ HTTP/1.1" 200 13331
+INFO 2025-09-19 22:34:18,489 autoreload 20484 6212 C:\Users\NGUGI\Weather-App-main\weatherapp\forms.py changed, reloading.
+INFO 2025-09-19 22:34:18,541 autoreload 16060 17200 C:\Users\NGUGI\Weather-App-main\weatherapp\forms.py changed, reloading.
+INFO 2025-09-19 22:34:20,091 autoreload 11568 22744 Watching for file changes with StatReloader
+INFO 2025-09-19 22:34:20,091 autoreload 20884 20540 Watching for file changes with StatReloader
+INFO 2025-09-19 22:34:39,521 autoreload 11568 22744 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:34:40,465 autoreload 20884 20540 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:34:41,034 autoreload 22928 4528 Watching for file changes with StatReloader
+INFO 2025-09-19 22:34:42,117 autoreload 17848 19116 Watching for file changes with StatReloader
+INFO 2025-09-19 22:35:03,150 autoreload 17848 19116 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:35:03,558 autoreload 22928 4528 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:35:04,499 autoreload 10812 15748 Watching for file changes with StatReloader
+INFO 2025-09-19 22:35:04,991 autoreload 3424 21972 Watching for file changes with StatReloader
+INFO 2025-09-19 22:35:16,131 autoreload 10812 15748 C:\Users\NGUGI\Weather-App-main\weatherapp\urls.py changed, reloading.
+INFO 2025-09-19 22:35:16,443 autoreload 3424 21972 C:\Users\NGUGI\Weather-App-main\weatherapp\urls.py changed, reloading.
+INFO 2025-09-19 22:35:17,300 autoreload 9064 1576 Watching for file changes with StatReloader
+INFO 2025-09-19 22:35:17,821 autoreload 14304 21888 Watching for file changes with StatReloader
+INFO 2025-09-19 22:37:01,642 autoreload 9064 1576 C:\Users\NGUGI\Weather-App-main\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-19 22:37:02,641 autoreload 14304 21888 C:\Users\NGUGI\Weather-App-main\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-19 22:37:02,923 autoreload 11664 1992 Watching for file changes with StatReloader
+INFO 2025-09-19 22:37:04,022 autoreload 17180 8956 Watching for file changes with StatReloader
+INFO 2025-09-19 22:37:16,534 basehttp 11664 11108 "GET /profile/ HTTP/1.1" 200 22160
+INFO 2025-09-19 22:37:22,228 basehttp 11664 11108 "GET /change-password/ HTTP/1.1" 200 13329
+INFO 2025-09-19 22:37:33,455 basehttp 11664 11108 "GET /profile/ HTTP/1.1" 200 22160
+INFO 2025-09-19 22:37:49,083 basehttp 11664 11108 "GET /dashboard/ HTTP/1.1" 200 28096
+INFO 2025-09-19 22:38:35,643 basehttp 11664 11108 "GET / HTTP/1.1" 200 40333
+INFO 2025-09-19 22:46:22,586 email_service 17200 24188 Daily weather summary sent to ngugipurityn@gmail.com
+INFO 2025-09-19 22:48:32,917 autoreload 11664 1992 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:48:32,957 autoreload 17180 8956 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:48:34,336 autoreload 17312 22432 Watching for file changes with StatReloader
+INFO 2025-09-19 22:48:34,373 autoreload 6276 17376 Watching for file changes with StatReloader
+INFO 2025-09-19 22:48:47,595 basehttp 17312 16544 "GET /dashboard/ HTTP/1.1" 200 27838
+INFO 2025-09-19 22:48:49,787 basehttp 17312 16544 "GET /profile/ HTTP/1.1" 200 22153
+INFO 2025-09-19 22:48:57,742 basehttp 17312 16544 "GET /dashboard/ HTTP/1.1" 200 28094
+INFO 2025-09-19 22:49:03,867 basehttp 17312 16544 "GET / HTTP/1.1" 200 40302
+INFO 2025-09-19 22:49:17,189 basehttp 17312 16544 "GET /location-weather/?lat=-1.1337728&lon=36.9852416 HTTP/1.1" 200 113
+INFO 2025-09-19 22:49:17,306 basehttp 17312 16544 "POST / HTTP/1.1" 200 40291
+INFO 2025-09-19 22:49:28,306 basehttp 17312 16544 "POST / HTTP/1.1" 200 40283
+INFO 2025-09-19 22:49:38,231 basehttp 17312 16544 "GET /location-weather/?lat=-1.1337728&lon=36.9852416 HTTP/1.1" 200 113
+INFO 2025-09-19 22:49:38,363 basehttp 17312 16544 "POST / HTTP/1.1" 200 40294
+INFO 2025-09-19 22:49:47,447 basehttp 17312 16544 "GET /dashboard/ HTTP/1.1" 200 28087
+INFO 2025-09-19 22:49:49,380 basehttp 17312 16544 "GET /profile/ HTTP/1.1" 200 22104
+INFO 2025-09-19 22:49:51,811 basehttp 17312 16544 "GET /dashboard/ HTTP/1.1" 200 28087
+INFO 2025-09-19 22:49:52,657 basehttp 17312 16544 "GET / HTTP/1.1" 200 40294
+INFO 2025-09-19 22:49:54,523 basehttp 17312 16544 "POST / HTTP/1.1" 200 40294
+INFO 2025-09-19 22:49:55,884 basehttp 17312 16544 "GET /location-weather/?lat=-1.1337728&lon=36.9852416 HTTP/1.1" 200 113
+INFO 2025-09-19 22:49:56,025 basehttp 17312 16544 "POST / HTTP/1.1" 200 40288
+INFO 2025-09-19 22:52:39,131 basehttp 17312 16544 "POST / HTTP/1.1" 200 40252
+INFO 2025-09-19 22:52:44,459 basehttp 17312 23448 "POST / HTTP/1.1" 200 40230
+INFO 2025-09-19 22:52:59,770 basehttp 17312 23448 "POST / HTTP/1.1" 200 40246
+INFO 2025-09-19 22:53:14,800 autoreload 6276 17376 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:53:14,830 autoreload 17312 22432 C:\Users\NGUGI\Weather-App-main\weatherapp\views.py changed, reloading.
+INFO 2025-09-19 22:53:16,853 autoreload 1344 16896 Watching for file changes with StatReloader
+INFO 2025-09-19 22:53:16,976 autoreload 21960 14756 Watching for file changes with StatReloader
+INFO 2025-09-19 22:53:21,056 basehttp 1344 22440 "GET /location-weather/?lat=-1.1337728&lon=36.9852416 HTTP/1.1" 200 113
+INFO 2025-09-19 22:53:29,585 basehttp 1344 22440 "POST / HTTP/1.1" 200 40316
+INFO 2025-09-19 22:54:49,627 basehttp 1344 22440 "GET /dashboard/ HTTP/1.1" 200 27822
+INFO 2025-09-19 22:55:36,361 basehttp 1344 22440 "GET / HTTP/1.1" 200 37610
+INFO 2025-09-19 22:55:59,962 basehttp 1344 22440 "GET /location-weather/?lat=-1.1298066&lon=37.0198858 HTTP/1.1" 200 110
+INFO 2025-09-19 22:56:19,676 basehttp 1344 22440 "POST / HTTP/1.1" 200 40319
+INFO 2025-09-19 22:56:26,195 basehttp 1344 22440 "GET /profile/ HTTP/1.1" 200 22081
+INFO 2025-09-19 22:56:30,980 basehttp 1344 22440 "GET /dashboard/ HTTP/1.1" 200 28078
+INFO 2025-09-19 22:56:44,646 basehttp 1344 22440 "GET / HTTP/1.1" 200 40310
+INFO 2025-09-19 22:56:57,295 basehttp 1344 22440 "GET /dashboard/ HTTP/1.1" 200 28079
+INFO 2025-09-19 22:57:18,141 basehttp 1344 22440 "GET /profile/ HTTP/1.1" 200 22079
+INFO 2025-09-19 22:57:35,630 basehttp 1344 22440 "GET /dashboard/ HTTP/1.1" 200 28079
+INFO 2025-09-19 22:57:44,168 basehttp 1344 22440 "GET / HTTP/1.1" 200 40307
+INFO 2025-09-19 22:57:48,574 basehttp 1344 22440 "GET /dashboard/ HTTP/1.1" 200 28076
+INFO 2025-09-19 22:58:12,216 basehttp 1344 22440 "GET / HTTP/1.1" 200 40309
+INFO 2025-09-19 22:58:32,681 basehttp 1344 22440 "POST / HTTP/1.1" 200 40232
+INFO 2025-09-19 22:58:57,483 basehttp 1344 22440 "POST / HTTP/1.1" 200 40253
+INFO 2025-09-19 22:59:21,068 basehttp 1344 22440 "GET /location-weather/?lat=-1.1337728&lon=36.9852416 HTTP/1.1" 200 113
+INFO 2025-09-19 22:59:32,052 basehttp 1344 22440 "POST / HTTP/1.1" 200 40315
+INFO 2025-09-19 22:59:38,040 basehttp 1344 22440 "GET /dashboard/ HTTP/1.1" 200 28076
+INFO 2025-09-19 23:01:24,306 basehttp 21960 14456 "GET / HTTP/1.1" 200 40316
+INFO 2025-09-19 23:02:08,199 basehttp 21960 14456 "GET /dashboard/ HTTP/1.1" 200 28091
+INFO 2025-09-19 23:02:37,979 basehttp 21960 14456 "GET /dashboard/ HTTP/1.1" 200 27822
+INFO 2025-09-19 23:02:49,689 basehttp 21960 14456 "GET /get-location-weather/?lat=-1.1337728&lon=36.9852416 HTTP/1.1" 200 113
+INFO 2025-09-19 23:02:57,793 basehttp 21960 14456 "GET /?city=Thika HTTP/1.1" 200 40309
+INFO 2025-09-19 23:03:02,792 basehttp 21960 14456 "GET /dashboard/ HTTP/1.1" 200 27825
+INFO 2025-09-19 23:03:05,435 basehttp 21960 14456 "GET /profile/ HTTP/1.1" 200 22080
+INFO 2025-09-19 23:03:42,156 basehttp 21960 14456 "GET /dashboard/ HTTP/1.1" 200 27835
+INFO 2025-09-19 23:03:49,469 basehttp 21960 14456 "GET /profile/ HTTP/1.1" 200 22081
+INFO 2025-09-19 23:04:09,728 basehttp 21960 14456 "GET /dashboard/ HTTP/1.1" 200 27835
+INFO 2025-09-19 23:04:13,803 basehttp 21960 14456 "GET /profile/ HTTP/1.1" 200 22079
+INFO 2025-09-19 23:04:59,114 basehttp 21960 14456 "GET /dashboard/ HTTP/1.1" 200 27835
+INFO 2025-09-19 23:07:19,542 basehttp 21960 14456 "GET /profile/ HTTP/1.1" 200 22082
+INFO 2025-09-19 23:57:46,671 basehttp 21960 2924 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 23:57:46,708 basehttp 21960 2924 "GET / HTTP/1.1" 200 30563
+INFO 2025-09-19 23:57:53,753 basehttp 21960 2924 "GET /location-weather/?lat=-1.1297689&lon=37.0198574 HTTP/1.1" 200 110
+INFO 2025-09-19 23:57:56,214 basehttp 21960 2924 "GET /location-weather/?lat=-1.1297689&lon=37.0198574 HTTP/1.1" 200 110
+INFO 2025-09-19 23:58:04,710 basehttp 21960 15724 "POST / HTTP/1.1" 200 32191
+INFO 2025-09-19 23:58:06,728 basehttp 21960 2924 "POST / HTTP/1.1" 200 32191
+INFO 2025-09-23 20:17:16,305 autoreload 27128 24668 Watching for file changes with StatReloader
+INFO 2025-09-23 20:28:25,538 basehttp 27128 17680 "GET / HTTP/1.1" 200 30290
+INFO 2025-09-23 20:28:26,486 basehttp 27128 17680 "GET /static/logo.png HTTP/1.1" 304 0
+INFO 2025-09-23 20:28:30,899 basehttp 27128 17680 "GET /location-weather/?lat=-1.1297868&lon=37.0198713 HTTP/1.1" 200 112
+INFO 2025-09-23 20:28:48,779 basehttp 27128 17680 "POST / HTTP/1.1" 200 32209
+INFO 2025-09-24 21:43:43,416 autoreload 27128 24668 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-24 21:43:54,322 autoreload 17528 13904 Watching for file changes with StatReloader
+INFO 2025-09-24 21:52:24,976 autoreload 17528 13904 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-24 21:52:26,290 autoreload 4972 15220 Watching for file changes with StatReloader
+INFO 2025-09-24 22:15:00,430 autoreload 4972 15220 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-24 22:15:01,586 autoreload 26676 16256 Watching for file changes with StatReloader
+INFO 2025-09-24 22:48:32,431 autoreload 26676 16256 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-24 22:54:13,612 autoreload 25756 7988 Watching for file changes with StatReloader
+INFO 2025-09-24 22:57:21,680 autoreload 25756 7988 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-24 22:57:22,731 autoreload 3096 7104 Watching for file changes with StatReloader
+INFO 2025-09-24 22:59:29,936 autoreload 3096 7104 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-24 22:59:30,926 autoreload 21000 1512 Watching for file changes with StatReloader
+INFO 2025-09-24 22:59:36,729 basehttp 21000 24284 "POST / HTTP/1.1" 302 0
+INFO 2025-09-24 22:59:36,796 basehttp 21000 24284 "GET /login/?next=/ HTTP/1.1" 200 5113
+INFO 2025-09-24 22:59:41,477 basehttp 21000 24284 "GET /login/?next=/ HTTP/1.1" 200 5113
+INFO 2025-09-24 22:59:41,707 basehttp 21000 24284 "GET /login/?next=/ HTTP/1.1" 200 5113
+INFO 2025-09-24 22:59:43,953 basehttp 21000 24284 "POST /login/?next=/ HTTP/1.1" 302 0
+ERROR 2025-09-24 22:59:44,068 log 21000 24284 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 70, in home
+    weather_data = get_weather_data(city)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 227, in get_weather_data
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric'
+                                                                            ^^^^^^^^^^^^^^^
+NameError: name 'WEATHER_API_KEY' is not defined
+ERROR 2025-09-24 22:59:44,077 basehttp 21000 24284 "GET / HTTP/1.1" 500 78850
+ERROR 2025-09-24 23:01:40,690 log 21000 24284 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 70, in home
+    weather_data = get_weather_data(city)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 227, in get_weather_data
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric'
+                                                                            ^^^^^^^^^^^^^^^
+NameError: name 'WEATHER_API_KEY' is not defined
+ERROR 2025-09-24 23:01:40,693 basehttp 21000 24284 "GET / HTTP/1.1" 500 78850
+INFO 2025-09-24 23:04:41,193 autoreload 21000 1512 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-24 23:04:42,346 autoreload 1304 19500 Watching for file changes with StatReloader
+INFO 2025-09-24 23:16:36,156 autoreload 1304 19500 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-24 23:16:37,345 autoreload 8776 27512 Watching for file changes with StatReloader
+INFO 2025-09-24 23:17:10,587 autoreload 8776 27512 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-24 23:17:11,718 autoreload 3912 7268 Watching for file changes with StatReloader
+INFO 2025-09-24 23:17:21,390 basehttp 3912 17096 "GET /login/?next=/ HTTP/1.1" 302 0
+INFO 2025-09-24 23:17:25,120 basehttp 3912 17096 "GET / HTTP/1.1" 200 31912
+ERROR 2025-09-24 23:17:29,431 log 3912 17096 Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 318, in logout_view
+    return redirect('landing')
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'landing' not found. 'landing' is not a valid view function or pattern name.
+ERROR 2025-09-24 23:17:29,464 basehttp 3912 17096 "GET /logout/ HTTP/1.1" 500 93566
+INFO 2025-09-24 23:17:36,555 basehttp 3912 17096 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-24 23:17:36,584 basehttp 3912 17096 "GET /login/?next=/dashboard/ HTTP/1.1" 200 5336
+INFO 2025-09-24 23:17:39,532 basehttp 3912 17096 "POST /login/?next=/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-24 23:17:43,144 basehttp 3912 17096 "GET / HTTP/1.1" 200 31915
+INFO 2025-09-24 23:17:46,337 basehttp 3912 17096 "GET /dashboard/ HTTP/1.1" 200 38722
+INFO 2025-09-24 23:17:56,605 basehttp 3912 17096 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-24 23:18:00,811 basehttp 3912 17096 "GET /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-24 23:18:15,759 basehttp 3912 17096 "GET / HTTP/1.1" 200 31646
+INFO 2025-09-24 23:19:01,689 basehttp 3912 17096 "GET / HTTP/1.1" 200 31892
+INFO 2025-09-24 23:19:09,223 basehttp 3912 17096 "GET /dashboard/ HTTP/1.1" 200 38727
+INFO 2025-09-24 23:19:16,494 basehttp 3912 17096 "GET / HTTP/1.1" 200 31894
+INFO 2025-09-24 23:19:27,098 basehttp 3912 17096 "GET /dashboard/ HTTP/1.1" 200 38733
+INFO 2025-09-24 23:19:40,737 basehttp 3912 17096 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-24 23:19:45,427 basehttp 3912 17096 "GET /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-24 23:19:51,219 basehttp 3912 17096 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-24 23:20:03,630 basehttp 3912 17096 "GET /settings/ HTTP/1.1" 200 14835
+ERROR 2025-09-24 23:20:14,860 log 3912 17096 Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 318, in logout_view
+    return redirect('landing')
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'landing' not found. 'landing' is not a valid view function or pattern name.
+ERROR 2025-09-24 23:20:14,867 basehttp 3912 17096 "GET /logout/ HTTP/1.1" 500 93575
+INFO 2025-09-24 23:20:17,845 basehttp 3912 17096 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-24 23:20:17,866 basehttp 3912 17096 "GET /login/?next=/logout/ HTTP/1.1" 200 5336
+INFO 2025-09-24 23:20:22,187 basehttp 3912 17096 "GET /signup/ HTTP/1.1" 200 7101
+INFO 2025-09-24 23:20:23,626 basehttp 3912 17096 "GET /login/ HTTP/1.1" 200 5113
+INFO 2025-09-24 23:20:26,107 basehttp 3912 17096 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-24 23:20:30,499 basehttp 3912 17096 "GET / HTTP/1.1" 200 32167
+INFO 2025-09-24 23:21:11,616 basehttp 3912 17096 "GET /dashboard/ HTTP/1.1" 200 38732
+INFO 2025-09-24 23:21:19,009 basehttp 3912 17096 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-24 23:21:46,185 basehttp 3912 17096 "GET /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-24 23:21:53,622 basehttp 3912 17096 "POST /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-24 23:21:58,103 basehttp 3912 17096 "POST /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-25 17:07:54,083 basehttp 3912 20848 "GET / HTTP/1.1" 200 31919
+INFO 2025-09-25 20:16:46,984 autoreload 3912 7268 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 20:16:49,912 autoreload 13928 9764 Watching for file changes with StatReloader
+INFO 2025-09-25 20:19:18,796 autoreload 13928 9764 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 20:19:20,183 autoreload 6740 17232 Watching for file changes with StatReloader
+INFO 2025-09-25 20:21:54,690 autoreload 6740 17232 C:\Users\NGUGI\Climascope\weatherapp\forms.py changed, reloading.
+INFO 2025-09-25 20:21:55,810 autoreload 27700 22112 Watching for file changes with StatReloader
+ERROR 2025-09-25 20:23:57,737 log 27700 11704 Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 318, in logout_view
+    return redirect('landing')
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'landing' not found. 'landing' is not a valid view function or pattern name.
+ERROR 2025-09-25 20:23:57,772 basehttp 27700 11704 "GET /logout/ HTTP/1.1" 500 93528
+INFO 2025-09-25 20:24:02,590 basehttp 27700 11704 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:24:02,637 basehttp 27700 11704 "GET /login/?next=/logout/ HTTP/1.1" 200 5336
+INFO 2025-09-25 20:25:12,878 autoreload 27700 22112 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-25 20:25:14,016 autoreload 7284 13432 Watching for file changes with StatReloader
+INFO 2025-09-25 20:30:59,786 autoreload 7284 13432 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-25 20:31:00,847 autoreload 15456 15004 Watching for file changes with StatReloader
+INFO 2025-09-25 20:32:30,795 basehttp 15456 25116 "GET /login/?next=/logout/ HTTP/1.1" 200 5113
+INFO 2025-09-25 20:32:31,324 basehttp 15456 25116 "GET /static/logo.png HTTP/1.1" 304 0
+INFO 2025-09-25 20:32:33,640 basehttp 15456 25116 "POST /login/?next=/logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:32:39,119 basehttp 15456 25116 "GET / HTTP/1.1" 200 32192
+INFO 2025-09-25 20:32:47,731 basehttp 15456 25116 "GET /dashboard/ HTTP/1.1" 200 38731
+INFO 2025-09-25 20:32:54,267 basehttp 15456 25116 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:32:54,355 basehttp 15456 25116 - Broken pipe from ('127.0.0.1', 49238)
+INFO 2025-09-25 20:32:54,502 basehttp 15456 17432 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:32:57,277 basehttp 15456 17432 "GET /settings/ HTTP/1.1" 200 14835
+ERROR 2025-09-25 20:33:34,318 log 15456 17432 Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 320, in logout_view
+    return redirect('landing')
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'landing' not found. 'landing' is not a valid view function or pattern name.
+ERROR 2025-09-25 20:33:34,354 basehttp 15456 17432 "GET /logout/ HTTP/1.1" 500 93537
+INFO 2025-09-25 20:33:51,958 basehttp 15456 17432 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:33:52,007 basehttp 15456 17432 "GET /login/?next=/logout/ HTTP/1.1" 200 5336
+INFO 2025-09-25 20:33:56,124 basehttp 15456 17432 "POST /login/?next=/logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:34:01,410 basehttp 15456 17432 "GET / HTTP/1.1" 200 32179
+INFO 2025-09-25 20:34:28,381 basehttp 15456 17432 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:34:30,053 basehttp 15456 17432 "GET /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-25 20:34:33,757 basehttp 15456 17432 "POST /settings/ HTTP/1.1" 200 14835
+INFO 2025-09-25 20:34:42,493 basehttp 15456 17432 "GET / HTTP/1.1" 200 31896
+INFO 2025-09-25 20:36:51,286 autoreload 15456 15004 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 20:37:40,517 autoreload 9900 7492 Watching for file changes with StatReloader
+INFO 2025-09-25 20:39:43,557 autoreload 9900 7492 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 20:39:44,894 autoreload 13036 9032 Watching for file changes with StatReloader
+INFO 2025-09-25 20:43:02,355 autoreload 13036 9032 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 20:43:03,314 autoreload 29080 27876 Watching for file changes with StatReloader
+INFO 2025-09-25 20:43:09,622 basehttp 29080 13480 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:43:09,646 basehttp 29080 13480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:43:09,677 basehttp 29080 13480 "GET /login/?next=/ HTTP/1.1" 200 5336
+INFO 2025-09-25 20:43:18,123 basehttp 29080 13480 "POST /login/?next=/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:43:23,614 basehttp 29080 13480 "GET / HTTP/1.1" 200 32157
+INFO 2025-09-25 20:44:26,526 basehttp 29080 13480 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:44:26,612 basehttp 29080 13480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:44:26,644 basehttp 29080 13480 "GET /login/?next=/ HTTP/1.1" 200 5336
+INFO 2025-09-25 20:46:34,695 autoreload 29080 27876 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 20:46:35,983 autoreload 8868 9588 Watching for file changes with StatReloader
+INFO 2025-09-25 20:46:40,110 basehttp 8868 28996 "GET /login/?next=/ HTTP/1.1" 200 5113
+INFO 2025-09-25 20:46:41,800 basehttp 8868 28996 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-25 20:47:03,136 basehttp 8868 28996 "GET /login/ HTTP/1.1" 200 5113
+INFO 2025-09-25 20:47:06,063 basehttp 8868 28996 "GET /signup/ HTTP/1.1" 200 7101
+INFO 2025-09-25 20:47:09,166 basehttp 8868 28996 "GET /login/ HTTP/1.1" 200 5113
+INFO 2025-09-25 20:47:13,020 basehttp 8868 28996 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:13,224 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:13,520 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:13,750 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:13,911 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:14,065 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:14,200 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:14,291 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:14,499 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:14,672 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:14,896 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:15,145 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:15,325 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:15,463 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:15,624 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:15,779 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:15,969 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:16,091 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:16,237 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:16,394 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:17,674 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:17,852 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:17,960 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:18,123 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:18,314 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:18,469 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:18,592 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:18,733 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:18,937 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:19,211 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:19,427 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:19,591 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:19,791 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:19,994 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:20,208 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:20,469 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:20,646 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:20,886 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:21,086 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:21,437 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:26,708 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:26,829 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:26,883 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:27,125 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:27,248 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:27,378 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:27,493 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:27,668 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:27,840 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,003 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,173 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,364 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,527 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,633 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,757 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:28,932 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:29,082 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:29,171 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:29,442 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:47:29,607 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:50:58,125 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:50:58,641 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:50:59,068 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:00,210 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:01,366 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:03,039 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:08,311 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:10,242 basehttp 8868 28996 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:10,275 basehttp 8868 26764 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:10,323 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:11,502 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:11,658 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:11,855 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:11,974 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,032 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,079 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,134 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,209 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,276 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,329 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,451 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,491 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,558 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,599 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,639 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,685 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,741 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,785 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,834 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:12,938 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:18,160 basehttp 8868 26764 "GET /dashboard/ HTTP/1.1" 200 38717
+INFO 2025-09-25 20:51:21,154 basehttp 8868 26764 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:51:23,426 basehttp 8868 26764 "GET /settings/ HTTP/1.1" 200 15167
+INFO 2025-09-25 20:51:24,654 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:24,717 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:24,766 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:24,811 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:24,858 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:24,909 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:24,962 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,007 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,054 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,097 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,139 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,180 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,245 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,288 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,334 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,375 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,437 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,488 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,534 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:25,576 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:26,689 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:26,738 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:26,871 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:26,926 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:26,972 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,016 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,061 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,108 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,160 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,210 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,259 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,308 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:27,357 basehttp 8868 26764 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:29,196 basehttp 8868 26764 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:51:29,213 basehttp 8868 26764 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-25 20:51:33,217 basehttp 8868 26764 "GET /login/ HTTP/1.1" 200 5336
+INFO 2025-09-25 20:53:29,949 autoreload 8868 9588 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 20:53:31,183 autoreload 26404 27788 Watching for file changes with StatReloader
+INFO 2025-09-25 20:53:36,596 basehttp 26404 9480 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,669 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,701 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,736 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,774 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,810 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,846 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,881 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:36,944 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,009 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,090 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,202 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,249 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,326 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,362 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,452 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,496 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,585 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,632 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:37,690 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:38,969 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,024 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,068 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,117 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,186 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,236 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,343 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,447 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,493 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,593 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,639 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,690 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,755 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,797 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,876 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:39,979 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:40,021 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:40,106 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:40,216 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:40,263 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,398 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,464 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,509 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,570 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,618 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,664 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,732 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,800 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,915 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:45,967 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,045 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,101 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,143 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,186 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,245 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,357 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,437 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,486 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,544 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:46,653 basehttp 26404 9480 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:47,320 basehttp 26404 9480 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:53:49,184 basehttp 26404 9480 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:53:49,205 basehttp 26404 9480 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-25 20:53:51,599 basehttp 26404 9480 "GET /login/ HTTP/1.1" 200 5512
+INFO 2025-09-25 20:53:54,873 autoreload 26404 27788 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 20:53:56,000 autoreload 27020 28556 Watching for file changes with StatReloader
+INFO 2025-09-25 20:54:14,967 autoreload 27020 28556 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 20:54:16,098 autoreload 28348 9920 Watching for file changes with StatReloader
+INFO 2025-09-25 20:54:22,338 basehttp 28348 27436 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:22,454 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:22,507 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:22,563 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:22,685 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:22,848 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:22,969 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,044 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,120 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,265 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,337 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,475 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,543 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,600 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,755 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,850 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:23,933 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:24,090 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:24,161 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:24,278 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:25,662 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:25,780 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:25,980 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,049 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,099 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,248 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,296 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,392 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,529 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,595 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,712 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,812 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:26,866 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,050 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,129 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,294 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,387 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,436 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,494 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:27,622 basehttp 28348 27436 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:32,511 basehttp 28348 27436 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:54:33,941 basehttp 28348 27436 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:54:33,968 basehttp 28348 27436 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-25 20:54:35,703 basehttp 28348 27436 "GET /login/ HTTP/1.1" 200 5512
+INFO 2025-09-25 20:54:39,014 autoreload 28348 9920 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 20:54:40,214 autoreload 6768 25904 Watching for file changes with StatReloader
+INFO 2025-09-25 20:56:40,286 autoreload 6768 25904 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 20:56:41,881 autoreload 23676 26928 Watching for file changes with StatReloader
+INFO 2025-09-25 20:56:48,085 basehttp 23676 24444 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:48,306 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:48,429 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:48,600 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:48,751 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:48,949 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:49,162 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:49,315 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:49,496 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:49,678 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:49,940 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,189 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,392 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,591 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,728 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,785 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,827 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,869 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:50,921 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:51,013 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,161 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,206 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,274 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,316 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,370 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,418 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,486 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,544 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,596 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,641 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,696 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,792 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,836 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:52,965 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:53,066 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:53,123 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:53,166 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:53,221 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:53,267 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:53,309 basehttp 23676 24444 "GET / HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:56,987 basehttp 23676 24444 "GET /profile/ HTTP/1.1" 200 12669
+INFO 2025-09-25 20:56:58,350 basehttp 23676 24444 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-25 20:56:58,381 basehttp 23676 24444 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-25 20:57:00,714 basehttp 23676 24444 "GET /login/ HTTP/1.1" 200 5512
+INFO 2025-09-25 20:57:05,583 autoreload 23676 26928 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 20:57:06,967 autoreload 15996 24272 Watching for file changes with StatReloader
+INFO 2025-09-25 21:03:54,790 autoreload 15996 24272 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 21:03:56,035 autoreload 12380 9312 Watching for file changes with StatReloader
+INFO 2025-09-25 21:05:04,251 autoreload 12380 9312 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-25 21:05:05,302 autoreload 16268 15472 Watching for file changes with StatReloader
+INFO 2025-09-25 21:05:34,665 autoreload 16268 15472 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-25 21:05:35,935 autoreload 13864 26464 Watching for file changes with StatReloader
+INFO 2025-09-25 21:06:00,917 autoreload 13864 26464 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-25 21:06:01,948 autoreload 10060 26996 Watching for file changes with StatReloader
+INFO 2025-09-25 21:07:25,876 basehttp 10060 23856 "GET /login/ HTTP/1.1" 200 5118
+INFO 2025-09-25 21:07:30,154 basehttp 10060 23856 "POST /login/ HTTP/1.1" 302 0
+ERROR 2025-09-25 21:07:30,256 log 10060 23856 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view weatherapp.views.home didn't return an HttpResponse object. It returned None instead.
+ERROR 2025-09-25 21:07:30,267 basehttp 10060 23856 "GET /home/ HTTP/1.1" 500 70414
+INFO 2025-09-25 21:09:58,558 autoreload 10060 26996 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-25 21:09:59,741 autoreload 24796 28424 Watching for file changes with StatReloader
+INFO 2025-09-25 21:10:45,821 autoreload 24796 28424 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 21:10:46,766 autoreload 25548 24788 Watching for file changes with StatReloader
+INFO 2025-09-25 21:12:58,342 autoreload 25548 24788 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-25 21:12:59,343 autoreload 22820 27656 Watching for file changes with StatReloader
+INFO 2025-09-25 21:20:03,270 autoreload 22820 27656 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-25 21:20:04,259 autoreload 18060 15292 Watching for file changes with StatReloader
+INFO 2025-09-25 21:20:41,609 basehttp 18060 28992 "GET /home/ HTTP/1.1" 200 32176
+INFO 2025-09-25 21:21:23,806 basehttp 18060 28992 "POST /home/ HTTP/1.1" 200 31907
+INFO 2025-09-25 21:21:59,750 basehttp 18060 28992 "POST /home/ HTTP/1.1" 200 31839
+INFO 2025-09-25 21:22:15,092 basehttp 18060 28992 "GET /dashboard/ HTTP/1.1" 200 38720
+INFO 2025-09-25 21:22:20,583 basehttp 18060 28992 "GET /profile/ HTTP/1.1" 200 12679
+INFO 2025-09-25 21:22:22,414 basehttp 18060 28992 "GET /settings/ HTTP/1.1" 200 14845
+INFO 2025-09-25 21:23:32,708 basehttp 18060 28992 "GET /home/ HTTP/1.1" 200 31906
+INFO 2025-09-25 21:24:44,938 basehttp 18060 28992 "GET /dashboard/ HTTP/1.1" 200 38715
+INFO 2025-09-25 21:25:10,628 basehttp 18060 28992 "GET /home/ HTTP/1.1" 200 31905
+INFO 2025-09-25 21:27:06,991 basehttp 18060 28992 "GET /dashboard/ HTTP/1.1" 200 38710
+INFO 2025-09-25 21:27:28,989 basehttp 18060 28992 "GET /profile/ HTTP/1.1" 200 12679
+INFO 2025-09-25 21:27:34,093 basehttp 18060 28992 "GET /dashboard/ HTTP/1.1" 200 38710
+INFO 2025-09-25 21:28:48,440 basehttp 18060 8392 "GET /home/ HTTP/1.1" 200 31906
+ERROR 2025-09-25 21:39:23,229 log 18060 26700 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 271, in home
+    return render(request, 'weatherapp/index.html', context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 638: 'if'. Looking for one of: elif, else, endif.
+ERROR 2025-09-25 21:39:23,276 basehttp 18060 26700 "GET /home/ HTTP/1.1" 500 198134
+INFO 2025-09-25 21:40:17,963 basehttp 18060 26700 "GET /home/ HTTP/1.1" 200 31903
+INFO 2025-09-25 21:50:10,245 basehttp 18060 7968 "GET /home/ HTTP/1.1" 200 22364
+INFO 2025-09-25 21:58:20,320 basehttp 18060 28892 "GET /home/ HTTP/1.1" 200 22872
+INFO 2025-09-25 21:58:50,341 basehttp 18060 28892 "POST /home/ HTTP/1.1" 200 22871
+INFO 2025-09-25 21:59:33,420 basehttp 18060 28892 "POST /home/ HTTP/1.1" 200 22871
+INFO 2025-09-25 22:00:28,853 basehttp 18060 28892 "POST /home/ HTTP/1.1" 200 16438
+INFO 2025-09-25 22:02:26,327 basehttp 18060 28892 "POST /home/ HTTP/1.1" 200 25476
+INFO 2025-09-25 22:18:38,009 basehttp 18060 21848 "POST /home/ HTTP/1.1" 200 27015
+INFO 2025-09-25 22:18:52,876 basehttp 18060 21848 "GET /dashboard/ HTTP/1.1" 200 38686
+INFO 2025-09-25 22:26:30,352 basehttp 18060 29080 "GET /dashboard/ HTTP/1.1" 200 30503
+INFO 2025-09-25 22:38:02,880 basehttp 18060 6896 "GET /dashboard/ HTTP/1.1" 200 35104
+INFO 2025-09-25 22:49:48,283 basehttp 18060 28744 "GET /dashboard/ HTTP/1.1" 200 47916
+INFO 2025-09-25 22:59:35,418 basehttp 18060 23392 "GET /dashboard/ HTTP/1.1" 200 42348
+INFO 2025-09-25 23:07:17,548 basehttp 18060 28824 "GET /dashboard/ HTTP/1.1" 200 41623
+INFO 2025-09-25 23:08:26,170 basehttp 18060 28824 "GET /dashboard/ HTTP/1.1" 200 42348
+INFO 2025-09-25 23:09:10,709 basehttp 18060 28824 "GET /profile/ HTTP/1.1" 200 12679
+INFO 2025-09-25 23:09:19,549 basehttp 18060 28824 "GET /settings/ HTTP/1.1" 200 14845
+INFO 2025-09-25 23:09:28,932 basehttp 18060 28824 "GET /profile/ HTTP/1.1" 200 12679
+INFO 2025-09-25 23:20:46,733 basehttp 18060 29528 "GET /dashboard/ HTTP/1.1" 200 44861
+INFO 2025-09-25 23:23:24,015 basehttp 18060 29528 "GET /dashboard/ HTTP/1.1" 200 42931
+INFO 2025-09-25 23:23:41,764 basehttp 18060 29528 "GET /profile/ HTTP/1.1" 200 12679
+INFO 2025-09-25 23:24:36,266 basehttp 18060 29528 "GET /dashboard/ HTTP/1.1" 200 42931
+INFO 2025-09-25 23:25:17,033 basehttp 18060 29528 "GET /home/ HTTP/1.1" 200 26774
+INFO 2025-09-25 23:25:48,029 basehttp 18060 29528 "GET /dashboard/ HTTP/1.1" 200 42931
+INFO 2025-09-25 23:26:20,275 basehttp 18060 29528 "GET /profile/ HTTP/1.1" 200 12679
+INFO 2025-09-25 23:29:37,635 basehttp 18060 26868 "GET /profile/ HTTP/1.1" 200 21796
+INFO 2025-09-25 23:32:54,583 basehttp 18060 26868 "GET /dashboard/ HTTP/1.1" 200 42931
+INFO 2025-09-25 23:32:57,319 basehttp 18060 26868 "GET /profile/ HTTP/1.1" 200 21796
+INFO 2025-09-25 23:35:51,124 basehttp 18060 26868 "GET /profile/ HTTP/1.1" 200 14671
+INFO 2025-09-25 23:40:01,797 basehttp 18060 26868 "GET /profile/ HTTP/1.1" 200 14713
+INFO 2025-09-25 23:40:32,218 basehttp 18060 26868 "GET /profile/ HTTP/1.1" 200 21796
+INFO 2025-09-25 23:57:24,281 basehttp 18060 19264 "GET /profile/ HTTP/1.1" 200 21080
+INFO 2025-09-25 23:58:07,901 basehttp 18060 9256 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-25 23:58:20,706 basehttp 18060 9256 "GET /settings/ HTTP/1.1" 200 14845
+INFO 2025-09-26 00:00:56,361 basehttp 18060 9256 "GET /settings/ HTTP/1.1" 200 14845
+INFO 2025-09-26 00:00:57,325 basehttp 18060 9256 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 00:01:00,111 basehttp 18060 9256 "GET /settings/ HTTP/1.1" 200 14845
+INFO 2025-09-26 00:03:50,866 basehttp 18060 9256 "GET /settings/ HTTP/1.1" 200 26887
+INFO 2025-09-26 00:03:59,801 basehttp 18060 9256 "POST /change-password/ HTTP/1.1" 200 14742
+INFO 2025-09-26 00:04:03,663 basehttp 18060 9256 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 00:04:06,120 basehttp 18060 9256 "GET /settings/ HTTP/1.1" 200 26887
+INFO 2025-09-26 00:04:12,126 basehttp 18060 9256 "POST /settings/ HTTP/1.1" 200 26887
+INFO 2025-09-26 00:05:45,020 basehttp 18060 9256 "POST /settings/ HTTP/1.1" 200 26589
+INFO 2025-09-26 00:06:29,939 basehttp 18060 9256 "GET /home/ HTTP/1.1" 200 26781
+INFO 2025-09-26 00:06:36,050 basehttp 18060 9256 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-26 00:06:36,077 basehttp 18060 9256 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-26 10:39:41,155 basehttp 18060 24768 "GET /login/ HTTP/1.1" 200 5341
+INFO 2025-09-26 10:39:56,289 basehttp 18060 24768 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-26 10:40:39,070 basehttp 18060 24768 "GET /home/ HTTP/1.1" 200 27057
+INFO 2025-09-26 11:18:34,422 autoreload 18060 15292 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-26 11:18:37,756 autoreload 8084 13824 Watching for file changes with StatReloader
+INFO 2025-09-26 11:21:53,169 autoreload 8084 13824 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-26 11:21:54,954 autoreload 28820 21744 Watching for file changes with StatReloader
+INFO 2025-09-26 11:22:57,293 autoreload 28820 21744 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-26 11:22:58,966 autoreload 12560 27456 Watching for file changes with StatReloader
+INFO 2025-09-26 11:23:57,636 autoreload 12560 27456 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-26 11:23:58,869 autoreload 15892 10092 Watching for file changes with StatReloader
+INFO 2025-09-26 11:27:21,791 autoreload 15892 10092 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-26 11:27:23,250 autoreload 28756 20376 Watching for file changes with StatReloader
+INFO 2025-09-26 11:28:59,124 autoreload 28756 20376 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-26 11:29:00,823 autoreload 29424 18028 Watching for file changes with StatReloader
+INFO 2025-09-26 11:29:15,687 autoreload 29424 18028 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-26 11:29:17,072 autoreload 7844 22408 Watching for file changes with StatReloader
+INFO 2025-09-26 11:38:45,372 autoreload 7844 22408 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-26 11:38:46,794 autoreload 25340 12560 Watching for file changes with StatReloader
+INFO 2025-09-26 11:39:03,667 basehttp 25340 10148 "GET /home/ HTTP/1.1" 200 26774
+INFO 2025-09-26 11:39:09,864 basehttp 25340 10148 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 11:39:13,646 basehttp 25340 10148 "GET /dashboard/ HTTP/1.1" 200 42940
+INFO 2025-09-26 11:40:07,995 basehttp 25340 10148 "GET /settings/ HTTP/1.1" 200 29103
+ERROR 2025-09-26 11:40:14,757 email_service 25340 10148 Error sending daily weather summary: weatherapp/daily_summary.html
+INFO 2025-09-26 11:40:14,980 basehttp 25340 10148 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:40:15,184 basehttp 25340 10148 "GET /settings/ HTTP/1.1" 200 29438
+ERROR 2025-09-26 11:41:00,244 log 25340 10148 Internal Server Error: /test-notifications/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 646, in test_notifications
+    email_service.send_weather_alert_email(alert)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WeatherNotificationService' object has no attribute 'send_weather_alert_email'. Did you mean: 'send_weather_alert'?
+ERROR 2025-09-26 11:41:00,256 basehttp 25340 10148 "POST /test-notifications/ HTTP/1.1" 500 76220
+ERROR 2025-09-26 11:41:05,878 email_service 25340 10148 Error sending account notification: weatherapp/account_notification.html
+INFO 2025-09-26 11:41:05,936 basehttp 25340 10148 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:41:05,984 basehttp 25340 10148 "GET /settings/ HTTP/1.1" 200 29438
+ERROR 2025-09-26 11:42:00,087 email_service 25340 10148 Error sending daily weather summary: weatherapp/daily_summary.html
+INFO 2025-09-26 11:42:00,792 basehttp 25340 10148 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:42:00,898 basehttp 25340 10148 "GET /settings/ HTTP/1.1" 200 29438
+INFO 2025-09-26 11:42:12,041 basehttp 25340 10148 "POST /settings/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:42:12,092 basehttp 25340 10148 "GET /settings/ HTTP/1.1" 200 29450
+INFO 2025-09-26 11:42:17,285 basehttp 25340 10148 "POST /settings/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:42:17,359 basehttp 25340 10148 "GET /settings/ HTTP/1.1" 200 29457
+INFO 2025-09-26 11:47:34,999 basehttp 25340 16908 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 11:47:36,496 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29103
+INFO 2025-09-26 11:47:47,799 basehttp 25340 16908 "POST /settings/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:47:48,646 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29443
+INFO 2025-09-26 11:47:51,016 basehttp 25340 16908 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 11:47:53,829 basehttp 25340 16908 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 11:47:56,036 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29103
+INFO 2025-09-26 11:48:28,372 basehttp 25340 16908 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 11:48:32,356 basehttp 25340 16908 "GET /dashboard/ HTTP/1.1" 200 42940
+INFO 2025-09-26 11:48:39,236 basehttp 25340 16908 "GET /profile/ HTTP/1.1" 200 19544
+INFO 2025-09-26 11:48:53,041 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29103
+INFO 2025-09-26 11:49:37,123 basehttp 25340 16908 "POST /settings/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:49:37,287 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29444
+INFO 2025-09-26 11:49:39,930 basehttp 25340 16908 "GET /profile/ HTTP/1.1" 200 19546
+INFO 2025-09-26 11:49:41,713 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29104
+INFO 2025-09-26 11:49:44,735 basehttp 25340 16908 "POST /settings/ HTTP/1.1" 302 0
+INFO 2025-09-26 11:49:44,834 basehttp 25340 16908 "GET /settings/ HTTP/1.1" 200 29443
+INFO 2025-09-26 12:00:33,817 autoreload 25340 12560 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-26 12:00:35,416 autoreload 17424 21728 Watching for file changes with StatReloader
+INFO 2025-09-26 12:07:07,355 autoreload 17424 21728 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-26 12:07:08,909 autoreload 28684 9584 Watching for file changes with StatReloader
+INFO 2025-09-26 12:08:25,040 autoreload 28684 9584 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-26 12:08:26,407 autoreload 13032 7580 Watching for file changes with StatReloader
+INFO 2025-09-26 12:08:53,336 autoreload 13032 7580 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-26 12:08:54,754 autoreload 9820 10092 Watching for file changes with StatReloader
+INFO 2025-09-26 12:12:00,985 autoreload 9820 10092 C:\Users\NGUGI\Climascope\weatherapp\models.py changed, reloading.
+INFO 2025-09-26 12:12:02,061 autoreload 25492 2400 Watching for file changes with StatReloader
+INFO 2025-09-26 12:18:55,431 autoreload 25492 2400 C:\Users\NGUGI\Climascope\weatherapp\models.py changed, reloading.
+INFO 2025-09-26 12:18:56,970 autoreload 1308 17888 Watching for file changes with StatReloader
+INFO 2025-09-26 12:20:48,394 autoreload 1308 17888 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-26 12:20:49,518 autoreload 13392 27728 Watching for file changes with StatReloader
+INFO 2025-09-26 12:34:52,660 autoreload 13392 27728 C:\Users\NGUGI\Climascope\weatherapp\models.py changed, reloading.
+INFO 2025-09-26 12:34:53,993 autoreload 16336 18192 Watching for file changes with StatReloader
+INFO 2025-09-26 12:37:03,128 autoreload 16336 18192 C:\Users\NGUGI\Climascope\weatherapp\urls.py changed, reloading.
+INFO 2025-09-26 12:37:04,372 autoreload 8708 17932 Watching for file changes with StatReloader
+INFO 2025-09-26 12:50:15,424 autoreload 8708 17932 C:\Users\NGUGI\Climascope\weatherapp\admin.py changed, reloading.
+INFO 2025-09-26 12:50:16,723 autoreload 11296 25284 Watching for file changes with StatReloader
+INFO 2025-09-26 12:51:25,448 autoreload 11296 25284 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-26 12:51:26,774 autoreload 21284 12296 Watching for file changes with StatReloader
+INFO 2025-09-26 12:52:14,090 basehttp 21284 28720 "GET /settings/ HTTP/1.1" 200 28871
+INFO 2025-09-26 12:52:25,899 basehttp 21284 28720 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:52:26,233 basehttp 21284 28720 "GET /profile/ HTTP/1.1" 200 17301
+INFO 2025-09-26 12:52:26,787 basehttp 21284 28720 "GET /media/avatars/pnn_9YQ8kW7.jpg HTTP/1.1" 200 62661
+INFO 2025-09-26 12:52:35,936 basehttp 21284 28720 "GET /profile/ HTTP/1.1" 200 17301
+INFO 2025-09-26 12:52:36,086 basehttp 21284 28720 "GET /media/avatars/pnn_9YQ8kW7.jpg HTTP/1.1" 304 0
+INFO 2025-09-26 12:52:37,692 basehttp 21284 28720 "GET /settings/ HTTP/1.1" 200 29477
+INFO 2025-09-26 12:52:37,860 basehttp 21284 28720 "GET /media/avatars/pnn_9YQ8kW7.jpg HTTP/1.1" 304 0
+INFO 2025-09-26 12:52:40,991 basehttp 21284 28720 "GET /profile/ HTTP/1.1" 200 17301
+INFO 2025-09-26 12:52:41,538 basehttp 21284 14004 "GET /profile/ HTTP/1.1" 200 17301
+INFO 2025-09-26 12:52:42,068 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 17301
+INFO 2025-09-26 12:52:42,905 basehttp 21284 1008 "GET /media/avatars/pnn_9YQ8kW7.jpg HTTP/1.1" 304 0
+INFO 2025-09-26 12:52:47,782 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 17301
+INFO 2025-09-26 12:52:48,380 basehttp 21284 1008 "GET /media/avatars/pnn_9YQ8kW7.jpg HTTP/1.1" 304 0
+INFO 2025-09-26 12:52:49,176 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29129
+INFO 2025-09-26 12:52:51,629 basehttp 21284 1008 "POST /delete-avatar/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:52:51,911 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 16989
+INFO 2025-09-26 12:52:55,157 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 16989
+INFO 2025-09-26 12:56:41,649 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 17127
+INFO 2025-09-26 12:56:59,258 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 19052
+INFO 2025-09-26 12:57:06,457 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29219
+INFO 2025-09-26 12:57:11,222 basehttp 21284 1008 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:57:11,693 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 18927
+INFO 2025-09-26 12:57:11,914 basehttp 21284 1008 "GET /media/avatars/pnn_Nli3gR0.jpg HTTP/1.1" 200 62661
+INFO 2025-09-26 12:57:37,156 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29477
+INFO 2025-09-26 12:57:37,313 basehttp 21284 1008 "GET /media/avatars/pnn_Nli3gR0.jpg HTTP/1.1" 304 0
+INFO 2025-09-26 12:58:25,466 basehttp 21284 1008 "POST /delete-avatar/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:58:25,691 basehttp 21284 1008 "GET /profile/ HTTP/1.1" 200 19052
+INFO 2025-09-26 12:58:39,966 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29219
+ERROR 2025-09-26 12:58:53,887 email_service 21284 1008 Error sending daily weather summary to ngugipurityn@gmail.com: weatherapp/email/daily_summary.html
+INFO 2025-09-26 12:58:54,071 basehttp 21284 1008 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:58:54,235 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29259
+ERROR 2025-09-26 12:59:11,058 email_service 21284 1008 Error sending daily weather summary to ngugipurityn@gmail.com: weatherapp/email/daily_summary.html
+INFO 2025-09-26 12:59:11,105 basehttp 21284 1008 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:59:11,183 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29259
+ERROR 2025-09-26 12:59:14,781 email_service 21284 1008 Error sending weather alert email to ngugipurityn@gmail.com: weatherapp/email/weather_alert.html
+INFO 2025-09-26 12:59:14,810 basehttp 21284 1008 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:59:14,882 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29236
+ERROR 2025-09-26 12:59:18,698 email_service 21284 1008 Error sending account notification: weatherapp/account_notification.html
+INFO 2025-09-26 12:59:18,727 basehttp 21284 1008 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-26 12:59:18,787 basehttp 21284 1008 "GET /settings/ HTTP/1.1" 200 29224
+INFO 2025-09-26 13:07:14,928 basehttp 21284 19444 "GET /profile/ HTTP/1.1" 200 19052
+INFO 2025-09-26 13:07:19,263 basehttp 21284 19444 "GET /dashboard/ HTTP/1.1" 200 42940
+INFO 2025-09-26 13:12:06,084 basehttp 21284 11388 "GET /dashboard/ HTTP/1.1" 200 43031
+INFO 2025-09-26 13:13:08,774 basehttp 21284 11388 "GET /dashboard/ HTTP/1.1" 200 42940
+INFO 2025-09-26 13:18:23,472 basehttp 21284 2536 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-26 13:18:31,488 basehttp 21284 2536 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-26 13:18:58,022 basehttp 21284 2536 "GET /home/ HTTP/1.1" 200 26784
+INFO 2025-09-26 13:25:22,339 basehttp 21284 29340 "GET /home/ HTTP/1.1" 200 30167
+INFO 2025-09-26 13:32:52,195 basehttp 21284 28836 "GET /home/ HTTP/1.1" 200 31289
+INFO 2025-09-26 13:46:58,767 basehttp 21284 17236 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-26 13:47:19,777 basehttp 21284 17236 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-26 13:47:28,141 basehttp 21284 17236 "GET /settings/ HTTP/1.1" 200 29897
+INFO 2025-09-26 13:47:43,950 basehttp 21284 17236 "GET /home/ HTTP/1.1" 200 31280
+INFO 2025-09-27 11:00:02,725 autoreload 15552 15468 Watching for file changes with StatReloader
+INFO 2025-09-27 11:05:30,946 basehttp 15552 15356 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-27 11:05:31,036 basehttp 15552 15356 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:11:08,730 basehttp 15552 13860 "GET / HTTP/1.1" 200 3160
+INFO 2025-09-27 11:11:36,944 basehttp 15552 13860 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:11:45,017 basehttp 15552 13860 "GET /login/ HTTP/1.1" 200 5341
+INFO 2025-09-27 11:11:49,740 basehttp 15552 13860 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-27 11:12:12,263 basehttp 15552 13860 "GET /home/ HTTP/1.1" 200 31585
+INFO 2025-09-27 11:12:20,558 basehttp 15552 13860 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-27 11:18:56,773 basehttp 15552 9204 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-27 11:18:56,797 basehttp 15552 9204 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:19:46,489 basehttp 15552 9204 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:19:46,765 basehttp 15552 9204 "GET /static/logo.png HTTP/1.1" 304 0
+INFO 2025-09-27 11:20:36,718 basehttp 15552 9204 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:21:19,263 basehttp 15552 9204 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:21:38,007 basehttp 15552 9204 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:22:53,113 basehttp 15552 9204 "GET /login/ HTTP/1.1" 200 5341
+INFO 2025-09-27 11:22:56,438 basehttp 15552 9204 "GET /login/ HTTP/1.1" 200 5118
+INFO 2025-09-27 11:23:51,311 basehttp 15552 9204 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-27 11:24:01,594 basehttp 15552 9204 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 11:24:03,622 basehttp 15552 9204 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-27 11:24:05,567 basehttp 15552 9204 "GET /signup/ HTTP/1.1" 200 7106
+INFO 2025-09-27 11:24:48,340 basehttp 15552 9204 "GET /signup/ HTTP/1.1" 200 7115
+INFO 2025-09-27 11:24:52,336 basehttp 15552 9204 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-27 11:25:12,326 basehttp 15552 9204 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-27 11:25:18,235 basehttp 15552 9204 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-27 11:25:33,304 basehttp 15552 9204 "GET /home/ HTTP/1.1" 200 31561
+INFO 2025-09-27 11:25:48,142 basehttp 15552 9204 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-27 11:26:03,382 basehttp 15552 9204 "GET /home/ HTTP/1.1" 200 31290
+INFO 2025-09-27 11:27:04,212 basehttp 15552 9204 "GET /home/ HTTP/1.1" 200 28600
+INFO 2025-09-27 11:28:52,728 basehttp 15552 8440 "GET /home/ HTTP/1.1" 200 28602
+INFO 2025-09-27 11:29:43,039 basehttp 15552 8440 "POST /home/ HTTP/1.1" 200 28602
+INFO 2025-09-27 11:29:52,947 basehttp 15552 2536 "POST /home/ HTTP/1.1" 200 28854
+INFO 2025-09-27 11:30:29,990 basehttp 15552 2536 "POST /home/ HTTP/1.1" 200 31284
+INFO 2025-09-27 11:31:48,253 basehttp 15552 2536 "POST /home/ HTTP/1.1" 200 31214
+INFO 2025-09-27 11:32:46,262 basehttp 15552 2536 "POST /home/ HTTP/1.1" 200 31538
+INFO 2025-09-27 11:34:39,571 basehttp 15552 2536 "POST /home/ HTTP/1.1" 200 28090
+INFO 2025-09-27 11:35:22,850 basehttp 15552 10924 "POST /home/ HTTP/1.1" 200 31270
+INFO 2025-09-27 11:35:48,460 basehttp 15552 10924 "POST /home/ HTTP/1.1" 200 31539
+INFO 2025-09-27 11:40:03,183 basehttp 15552 10924 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-27 11:40:07,938 basehttp 15552 10924 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-27 11:40:10,840 basehttp 15552 10924 "GET /settings/ HTTP/1.1" 200 29897
+INFO 2025-09-27 11:42:11,447 basehttp 15552 10924 "GET /deactivate-account/ HTTP/1.1" 200 9348
+INFO 2025-09-27 11:42:32,957 basehttp 15552 10924 "GET /deactivate-account/ HTTP/1.1" 200 9348
+INFO 2025-09-27 11:43:29,069 basehttp 15552 10924 "GET /delete-account/ HTTP/1.1" 200 13336
+INFO 2025-09-27 11:44:20,964 basehttp 15552 10924 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-27 11:44:23,307 basehttp 15552 10924 "GET /settings/ HTTP/1.1" 200 29897
+INFO 2025-09-27 11:46:38,477 basehttp 15552 10924 "GET /home/ HTTP/1.1" 200 31269
+INFO 2025-09-27 11:46:42,375 basehttp 15552 10924 "GET /settings/ HTTP/1.1" 200 29897
+INFO 2025-09-27 11:47:27,522 basehttp 15552 10924 "GET /profile/ HTTP/1.1" 200 20078
+WARNING 2025-09-27 11:49:03,075 log 15552 10924 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-27 11:49:03,076 basehttp 15552 10924 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7009
+INFO 2025-09-27 11:49:57,843 basehttp 15552 10924 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-27 12:04:47,187 basehttp 15552 3200 "GET /dashboard/ HTTP/1.1" 200 45883
+INFO 2025-09-27 12:06:18,911 basehttp 15552 3200 "GET /dashboard/ HTTP/1.1" 200 43966
+INFO 2025-09-27 15:45:49,442 basehttp 15552 2500 "GET /dashboard/ HTTP/1.1" 200 31959
+INFO 2025-09-27 15:47:19,501 basehttp 15552 2500 "GET /dashboard/ HTTP/1.1" 200 31703
+INFO 2025-09-27 15:47:26,550 basehttp 15552 2500 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-27 15:47:53,006 basehttp 15552 2500 "GET /dashboard/ HTTP/1.1" 200 31694
+INFO 2025-09-27 15:47:54,754 basehttp 15552 2500 "GET /settings/ HTTP/1.1" 200 29897
+INFO 2025-09-27 15:48:01,292 basehttp 15552 2500 "GET /dashboard/ HTTP/1.1" 200 31694
+INFO 2025-09-27 15:49:13,272 basehttp 15552 2500 "GET /dashboard/ HTTP/1.1" 200 30820
+INFO 2025-09-27 15:50:10,539 basehttp 15552 2500 "GET /dashboard/ HTTP/1.1" 200 30193
+INFO 2025-09-27 15:52:33,184 basehttp 15552 2500 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-27 15:52:37,394 basehttp 15552 2500 "GET /settings/ HTTP/1.1" 200 29897
+ERROR 2025-09-27 15:52:42,008 email_service 15552 2500 Error sending daily weather summary to ngugipurityn@gmail.com: weatherapp/email/daily_summary.html
+INFO 2025-09-27 15:52:42,103 basehttp 15552 2500 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-27 15:52:42,149 basehttp 15552 2500 "GET /settings/ HTTP/1.1" 200 30285
+ERROR 2025-09-27 15:52:45,522 email_service 15552 2500 Error sending weather alert email to ngugipurityn@gmail.com: weatherapp/email/weather_alert.html
+INFO 2025-09-27 15:52:45,632 basehttp 15552 2500 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-27 15:52:45,687 basehttp 15552 2500 "GET /settings/ HTTP/1.1" 200 30262
+ERROR 2025-09-27 15:52:48,349 email_service 15552 2500 Error sending account notification: weatherapp/account_notification.html
+INFO 2025-09-27 15:52:48,461 basehttp 15552 2500 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-27 15:52:48,581 basehttp 15552 2500 "GET /settings/ HTTP/1.1" 200 30250
+INFO 2025-09-27 15:54:05,263 basehttp 15552 6036 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-27 15:54:06,181 basehttp 15552 6036 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-27 15:54:08,504 basehttp 15552 6036 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-27 15:54:10,685 basehttp 15552 6036 "GET /signup/ HTTP/1.1" 200 7115
+ERROR 2025-09-27 15:54:41,823 log 15552 6036 Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: weatherapp_userprofile.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 283, in signup_view
+    UserProfile.objects.create(user=user)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: weatherapp_userprofile.user_id
+ERROR 2025-09-27 15:54:41,868 basehttp 15552 6036 "POST /signup/ HTTP/1.1" 500 165831
+WARNING 2025-09-27 15:54:42,174 log 15552 6036 Not Found: /favicon.ico
+WARNING 2025-09-27 15:54:42,179 basehttp 15552 6036 "GET /favicon.ico HTTP/1.1" 404 6898
+INFO 2025-09-27 15:54:50,903 basehttp 15552 6036 "POST /signup/ HTTP/1.1" 200 7524
+ERROR 2025-09-27 15:55:21,143 log 15552 6036 Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: weatherapp_userprofile.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 283, in signup_view
+    UserProfile.objects.create(user=user)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: weatherapp_userprofile.user_id
+ERROR 2025-09-27 15:55:21,171 basehttp 15552 6036 "POST /signup/ HTTP/1.1" 500 165877
+INFO 2025-09-27 15:55:31,238 basehttp 15552 6036 "POST /signup/ HTTP/1.1" 200 7520
+INFO 2025-09-27 15:55:44,791 basehttp 15552 6036 "GET /signup/ HTTP/1.1" 200 7115
+INFO 2025-09-27 15:56:14,660 basehttp 15552 2500 "GET /home/ HTTP/1.1" 200 31300
+INFO 2025-09-27 15:57:20,175 basehttp 15552 2500 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-27 15:57:37,427 basehttp 15552 2500 "GET /settings/ HTTP/1.1" 200 29897
+INFO 2025-09-27 16:05:18,952 basehttp 15552 18076 "GET /dashboard/ HTTP/1.1" 200 30125
+INFO 2025-09-27 22:01:18,801 basehttp 15552 2356 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-28 14:47:23,307 autoreload 17760 17768 Watching for file changes with StatReloader
+INFO 2025-09-28 14:52:30,894 basehttp 17760 9660 "GET /dashboard/ HTTP/1.1" 200 30115
+INFO 2025-09-28 14:52:45,994 basehttp 17760 9660 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-28 17:40:33,658 autoreload 3068 15956 Watching for file changes with StatReloader
+INFO 2025-09-28 17:59:52,383 basehttp 3068 16664 "GET /dashboard/ HTTP/1.1" 200 30115
+INFO 2025-09-28 17:59:53,724 basehttp 3068 16664 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-28 19:50:18,008 basehttp 3068 15768 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-28 19:50:18,334 basehttp 3068 15768 "GET / HTTP/1.1" 200 3161
+INFO 2025-09-29 08:45:25,277 autoreload 9412 8336 Watching for file changes with StatReloader
+INFO 2025-09-29 09:29:20,525 autoreload 9412 8336 C:\Users\NGUGI\Climascope\weatherapp\models.py changed, reloading.
+INFO 2025-09-29 09:29:22,507 autoreload 3900 11500 Watching for file changes with StatReloader
+INFO 2025-09-29 09:29:47,142 autoreload 3900 11500 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-29 09:29:48,405 autoreload 10912 8552 Watching for file changes with StatReloader
+INFO 2025-09-29 09:31:29,550 autoreload 10912 8552 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-29 09:31:30,830 autoreload 16836 15188 Watching for file changes with StatReloader
+INFO 2025-09-29 09:36:33,024 autoreload 16836 15188 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 09:36:34,123 autoreload 15228 8456 Watching for file changes with StatReloader
+INFO 2025-09-29 09:39:50,979 autoreload 15228 8456 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 09:39:52,064 autoreload 2980 8204 Watching for file changes with StatReloader
+INFO 2025-09-29 09:48:03,664 autoreload 2980 8204 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-29 09:48:04,637 autoreload 13164 8584 Watching for file changes with StatReloader
+INFO 2025-09-29 09:51:43,600 autoreload 13164 8584 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-29 09:51:44,618 autoreload 8552 14956 Watching for file changes with StatReloader
+INFO 2025-09-29 09:52:53,183 autoreload 8552 14956 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-29 09:52:54,349 autoreload 15324 10956 Watching for file changes with StatReloader
+INFO 2025-09-29 09:59:10,218 autoreload 15324 10956 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-29 09:59:11,268 autoreload 1528 6268 Watching for file changes with StatReloader
+INFO 2025-09-29 09:59:17,604 basehttp 1528 8868 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-29 09:59:20,296 basehttp 1528 8868 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-29 09:59:22,595 basehttp 1528 8868 "GET /signup/ HTTP/1.1" 200 7338
+INFO 2025-09-29 09:59:25,976 basehttp 1528 8868 "GET /login/ HTTP/1.1" 200 5127
+ERROR 2025-09-29 09:59:30,454 log 1528 8868 Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: weatherapp_userprofile.is_email_verified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 347, in login_view
+    profile = UserProfile.objects.get(user=user)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: weatherapp_userprofile.is_email_verified
+ERROR 2025-09-29 09:59:30,505 basehttp 1528 8868 "POST /login/ HTTP/1.1" 500 149887
+WARNING 2025-09-29 09:59:30,901 log 1528 8868 Not Found: /favicon.ico
+WARNING 2025-09-29 09:59:30,903 basehttp 1528 8868 "GET /favicon.ico HTTP/1.1" 404 8001
+INFO 2025-09-29 10:01:13,220 basehttp 1528 8868 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:01:31,632 basehttp 1528 8868 "GET /home/ HTTP/1.1" 200 31875
+INFO 2025-09-29 10:01:52,659 basehttp 1528 8868 "GET /dashboard/ HTTP/1.1" 200 44408
+INFO 2025-09-29 10:02:23,961 basehttp 1528 8868 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-29 10:02:26,132 basehttp 1528 8868 "GET /settings/ HTTP/1.1" 200 43304
+ERROR 2025-09-29 10:02:29,428 email_service 1528 8868 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 10:02:29,554 basehttp 1528 8868 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:02:29,704 basehttp 1528 8868 "GET /profile/ HTTP/1.1" 200 20078
+INFO 2025-09-29 10:03:05,447 basehttp 1528 8868 "GET /settings/ HTTP/1.1" 200 43671
+INFO 2025-09-29 10:03:24,666 email_service 1528 8868 Daily summary disabled for user purityngugi
+INFO 2025-09-29 10:03:24,754 basehttp 1528 8868 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:03:24,826 basehttp 1528 8868 "GET /settings/ HTTP/1.1" 200 43692
+INFO 2025-09-29 10:03:30,166 email_service 1528 8868 Notifications disabled for user purityngugi
+INFO 2025-09-29 10:03:30,202 basehttp 1528 8868 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:03:30,287 basehttp 1528 8868 "GET /settings/ HTTP/1.1" 200 43669
+INFO 2025-09-29 10:03:34,291 basehttp 1528 8868 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:03:34,357 basehttp 1528 8868 "GET /settings/ HTTP/1.1" 200 43657
+INFO 2025-09-29 10:07:23,586 basehttp 1528 8868 "GET /home/ HTTP/1.1" 200 31661
+INFO 2025-09-29 10:07:28,479 basehttp 1528 8868 "GET /privacy-policy/ HTTP/1.1" 200 22123
+INFO 2025-09-29 10:08:52,240 basehttp 1528 8868 "GET /dashboard/ HTTP/1.1" 200 44957
+INFO 2025-09-29 10:09:36,451 basehttp 1528 8868 "GET /dashboard/ HTTP/1.1" 200 44989
+INFO 2025-09-29 10:09:38,597 basehttp 1528 8868 "GET /terms-of-service/ HTTP/1.1" 200 25907
+INFO 2025-09-29 10:09:50,232 basehttp 1528 8868 "GET /contact-us/ HTTP/1.1" 200 28199
+INFO 2025-09-29 10:10:43,200 basehttp 1528 8868 "GET /privacy-policy/ HTTP/1.1" 200 22154
+INFO 2025-09-29 10:10:59,250 basehttp 1528 8868 "GET /home/ HTTP/1.1" 200 31633
+INFO 2025-09-29 10:11:02,179 basehttp 1528 8868 "GET /terms-of-service/ HTTP/1.1" 200 25907
+INFO 2025-09-29 10:11:13,260 basehttp 1528 8868 "GET /privacy-policy/ HTTP/1.1" 200 22154
+INFO 2025-09-29 10:11:16,490 basehttp 1528 8868 "GET /contact-us/ HTTP/1.1" 200 28199
+INFO 2025-09-29 10:11:59,589 basehttp 1528 8868 "GET /home/ HTTP/1.1" 200 31626
+INFO 2025-09-29 10:15:58,649 basehttp 1528 7600 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-29 10:16:07,371 basehttp 1528 7600 "GET /signup/ HTTP/1.1" 200 7115
+ERROR 2025-09-29 10:16:59,652 email_service 1528 7600 Error sending verification email to purity2004ngugi@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 10:16:59,946 basehttp 1528 7600 "POST /signup/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:17:00,102 basehttp 1528 7600 "GET /home/ HTTP/1.1" 200 25764
+INFO 2025-09-29 10:17:12,067 basehttp 1528 7600 "GET /profile/ HTTP/1.1" 200 20102
+INFO 2025-09-29 10:17:15,730 basehttp 1528 7600 "GET /settings/ HTTP/1.1" 200 43312
+ERROR 2025-09-29 10:17:17,528 email_service 1528 7600 Error sending verification email to purity2004ngugi@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 10:17:17,561 basehttp 1528 7600 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:17:17,646 basehttp 1528 7600 "GET /profile/ HTTP/1.1" 200 20102
+INFO 2025-09-29 10:17:23,874 basehttp 1528 7600 "GET /settings/ HTTP/1.1" 200 43679
+INFO 2025-09-29 10:17:48,407 basehttp 1528 7600 "POST /settings/ HTTP/1.1" 200 44598
+INFO 2025-09-29 10:18:00,932 basehttp 1528 7600 "GET /deactivate-account/ HTTP/1.1" 200 9347
+ERROR 2025-09-29 10:18:09,308 email_service 1528 7600 Error sending account notification: weatherapp/email/account_notification.html
+INFO 2025-09-29 10:18:09,499 basehttp 1528 7600 "POST /deactivate-account/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:18:09,521 basehttp 1528 7600 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-29 10:18:13,045 basehttp 1528 7600 "GET /login/ HTTP/1.1" 200 5405
+INFO 2025-09-29 10:18:19,449 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:18:23,197 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:18:55,770 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:19:14,972 basehttp 1528 5060 "GET /settings/ HTTP/1.1" 200 43335
+INFO 2025-09-29 10:19:22,751 basehttp 1528 5060 "GET /deactivate-account/ HTTP/1.1" 200 9348
+INFO 2025-09-29 10:19:36,355 basehttp 1528 5060 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 10:19:43,533 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:19:49,510 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:19:49,575 basehttp 1528 7600 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-29 10:19:54,112 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:20:02,079 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:20:11,467 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:20:25,198 basehttp 1528 7600 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-29 10:20:31,131 basehttp 1528 7600 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:20:32,701 basehttp 1528 7600 "GET /signup/ HTTP/1.1" 200 7115
+INFO 2025-09-29 10:21:28,804 basehttp 1528 7600 "POST /signup/ HTTP/1.1" 200 8080
+INFO 2025-09-29 10:21:43,489 basehttp 1528 7600 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-29 10:22:09,227 basehttp 1528 7600 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:22:09,914 basehttp 1528 7600 "GET /home/ HTTP/1.1" 200 25970
+INFO 2025-09-29 10:22:20,803 basehttp 1528 7600 "GET /profile/ HTTP/1.1" 200 20102
+INFO 2025-09-29 10:23:57,392 basehttp 1528 5060 "GET /settings/ HTTP/1.1" 200 43335
+INFO 2025-09-29 10:25:02,395 basehttp 1528 7600 "GET /settings/ HTTP/1.1" 200 43312
+INFO 2025-09-29 10:25:05,104 basehttp 1528 5060 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 10:25:09,130 basehttp 1528 5060 "GET /dashboard/ HTTP/1.1" 200 44974
+ERROR 2025-09-29 10:27:42,554 log 1528 7600 Internal Server Error: /settings/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 542, in settings_view
+    return render(request, 'weatherapp/settings.html', context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' not found. 'change_password' is not a valid view function or pattern name.
+ERROR 2025-09-29 10:27:42,582 basehttp 1528 7600 "GET /settings/ HTTP/1.1" 500 174126
+WARNING 2025-09-29 10:27:42,891 log 1528 7600 Not Found: /favicon.ico
+WARNING 2025-09-29 10:27:42,895 basehttp 1528 7600 "GET /favicon.ico HTTP/1.1" 404 8001
+INFO 2025-09-29 10:27:58,128 basehttp 1528 7600 "GET /settings/ HTTP/1.1" 200 43312
+ERROR 2025-09-29 10:37:01,293 log 1528 11248 Internal Server Error: /settings/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 542, in settings_view
+    return render(request, 'weatherapp/settings.html', context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password_view' not found. 'change_password_view' is not a valid view function or pattern name.
+ERROR 2025-09-29 10:37:01,402 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 500 174138
+ERROR 2025-09-29 10:37:09,386 log 1528 11248 Internal Server Error: /settings/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 542, in settings_view
+    return render(request, 'weatherapp/settings.html', context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password_view' not found. 'change_password_view' is not a valid view function or pattern name.
+ERROR 2025-09-29 10:37:09,431 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 500 177817
+ERROR 2025-09-29 10:37:15,247 log 1528 11248 Internal Server Error: /settings/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 542, in settings_view
+    return render(request, 'weatherapp/settings.html', context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password_view' not found. 'change_password_view' is not a valid view function or pattern name.
+ERROR 2025-09-29 10:37:15,303 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 500 177817
+ERROR 2025-09-29 10:37:16,412 log 1528 11248 Internal Server Error: /settings/
+Traceback (most recent call last):
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\NGUGI\Climascope\weatherapp\views.py", line 542, in settings_view
+    return render(request, 'weatherapp/settings.html', context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password_view' not found. 'change_password_view' is not a valid view function or pattern name.
+ERROR 2025-09-29 10:37:16,477 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 500 177817
+INFO 2025-09-29 10:37:28,756 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 200 43312
+INFO 2025-09-29 10:41:53,631 basehttp 1528 11248 "POST /settings/ HTTP/1.1" 200 44130
+INFO 2025-09-29 10:41:57,240 basehttp 1528 11248 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:41:57,253 basehttp 1528 11248 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-29 10:41:58,990 basehttp 1528 11248 "GET /signup/ HTTP/1.1" 200 7338
+INFO 2025-09-29 10:42:00,501 basehttp 1528 11248 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-29 10:42:04,792 basehttp 1528 11248 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 10:42:18,123 basehttp 1528 11248 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:42:18,207 basehttp 1528 11248 "GET /home/ HTTP/1.1" 200 25693
+INFO 2025-09-29 10:42:45,382 basehttp 1528 11248 "POST /home/ HTTP/1.1" 200 29254
+INFO 2025-09-29 10:42:51,878 basehttp 1528 11248 "GET /dashboard/ HTTP/1.1" 200 37094
+INFO 2025-09-29 10:43:21,711 basehttp 1528 10932 "GET /dashboard/ HTTP/1.1" 200 44974
+INFO 2025-09-29 10:43:53,121 basehttp 1528 11248 "GET /dashboard/ HTTP/1.1" 200 37093
+INFO 2025-09-29 10:44:07,694 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 200 43312
+ERROR 2025-09-29 10:44:12,658 email_service 1528 11248 Error sending verification email to purity2004ngugi@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 10:44:12,681 basehttp 1528 11248 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 10:44:12,745 basehttp 1528 11248 "GET /profile/ HTTP/1.1" 200 20102
+INFO 2025-09-29 10:44:14,573 basehttp 1528 11248 "GET /settings/ HTTP/1.1" 200 43679
+INFO 2025-09-29 14:21:41,429 autoreload 8572 11064 Watching for file changes with StatReloader
+INFO 2025-09-29 14:25:16,588 basehttp 8572 13916 "GET /settings/ HTTP/1.1" 200 43312
+ERROR 2025-09-29 16:08:05,089 email_service 8572 17332 Error sending verification email to purity2004ngugi@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 16:08:05,119 basehttp 8572 17332 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 16:08:05,186 basehttp 8572 17332 "GET /profile/ HTTP/1.1" 200 20102
+INFO 2025-09-29 16:19:56,172 basehttp 8572 9616 "GET /dashboard/ HTTP/1.1" 200 44994
+INFO 2025-09-29 16:19:57,489 basehttp 8572 9616 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-29 16:19:58,499 basehttp 8572 9616 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-09-29 16:19:58,517 basehttp 8572 9616 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-29 16:20:00,410 basehttp 8572 9616 "GET /signup/ HTTP/1.1" 200 7338
+INFO 2025-09-29 16:20:02,091 basehttp 8572 9616 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-29 16:21:02,168 autoreload 12716 10592 Watching for file changes with StatReloader
+INFO 2025-09-29 16:21:23,272 basehttp 12716 8768 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-09-29 16:21:34,634 basehttp 12716 8768 "GET /home/ HTTP/1.1" 200 31892
+INFO 2025-09-29 16:21:42,574 basehttp 12716 8768 "GET /settings/ HTTP/1.1" 200 43335
+ERROR 2025-09-29 16:21:45,717 email_service 12716 8768 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 16:21:45,742 basehttp 12716 8768 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 16:21:45,793 basehttp 12716 8768 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 16:22:07,525 basehttp 12716 8768 "GET /settings/ HTTP/1.1" 200 43702
+INFO 2025-09-29 16:22:15,674 email_service 12716 8768 Daily summary disabled for user purityngugi
+INFO 2025-09-29 16:22:15,697 basehttp 12716 8768 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 16:22:15,756 basehttp 12716 8768 "GET /settings/ HTTP/1.1" 200 43723
+INFO 2025-09-29 16:22:23,678 basehttp 12716 10444 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 16:22:29,296 basehttp 12716 8768 "GET /home/ HTTP/1.1" 200 31632
+INFO 2025-09-29 16:26:33,807 autoreload 11568 10280 Watching for file changes with StatReloader
+INFO 2025-09-29 16:29:51,382 autoreload 13756 6292 Watching for file changes with StatReloader
+INFO 2025-09-29 16:30:29,670 autoreload 11052 384 Watching for file changes with StatReloader
+INFO 2025-09-29 18:11:51,311 autoreload 15116 17704 Watching for file changes with StatReloader
+INFO 2025-09-29 18:37:03,505 autoreload 15116 17704 C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\requests\api.py changed, reloading.
+INFO 2025-09-29 18:37:05,476 autoreload 16056 9368 Watching for file changes with StatReloader
+INFO 2025-09-29 18:37:14,870 autoreload 16056 9368 C:\Users\NGUGI\AppData\Roaming\Python\Python313\site-packages\django\apps\config.py changed, reloading.
+INFO 2025-09-29 18:48:06,137 autoreload 11848 7224 Watching for file changes with StatReloader
+INFO 2025-09-29 19:02:00,064 autoreload 11848 7224 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 19:02:01,295 autoreload 9864 13372 Watching for file changes with StatReloader
+INFO 2025-09-29 19:03:14,173 autoreload 16744 16184 Watching for file changes with StatReloader
+INFO 2025-09-29 19:06:40,180 autoreload 16744 16184 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 19:06:41,339 autoreload 4128 17024 Watching for file changes with StatReloader
+INFO 2025-09-29 19:07:43,849 autoreload 15244 3432 Watching for file changes with StatReloader
+INFO 2025-09-29 19:11:54,933 autoreload 17880 1308 Watching for file changes with StatReloader
+INFO 2025-09-29 21:48:04,685 basehttp 17880 13852 "GET /home/ HTTP/1.1" 200 31649
+INFO 2025-09-29 21:51:08,058 basehttp 17880 15312 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 21:51:10,114 basehttp 17880 15312 "GET /settings/ HTTP/1.1" 200 43245
+INFO 2025-09-29 23:12:49,386 autoreload 10600 18176 Watching for file changes with StatReloader
+INFO 2025-09-29 23:19:26,682 autoreload 11024 7748 Watching for file changes with StatReloader
+ERROR 2025-09-29 23:28:54,148 email_service 11024 11436 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 23:28:54,173 basehttp 11024 11436 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:28:54,267 basehttp 11024 11436 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 23:29:07,963 basehttp 11024 11436 "GET /settings/ HTTP/1.1" 200 43612
+ERROR 2025-09-29 23:29:10,925 email_service 11024 11436 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 23:29:10,958 basehttp 11024 11436 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:29:11,073 basehttp 11024 11436 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 23:29:13,229 basehttp 11024 11436 "GET /settings/ HTTP/1.1" 200 43612
+INFO 2025-09-29 23:29:20,548 email_service 11024 11436 Daily summary disabled for user purityngugi
+INFO 2025-09-29 23:29:21,944 basehttp 11024 11436 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:29:23,005 basehttp 11024 11436 "GET /settings/ HTTP/1.1" 200 43633
+INFO 2025-09-29 23:29:28,778 email_service 11024 11436 Notifications disabled for user purityngugi
+INFO 2025-09-29 23:29:29,042 basehttp 11024 11436 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:29:29,233 basehttp 11024 11436 "GET /settings/ HTTP/1.1" 200 43610
+INFO 2025-09-29 23:29:34,187 basehttp 11024 11436 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:29:34,391 basehttp 11024 11436 "GET /settings/ HTTP/1.1" 200 43598
+INFO 2025-09-29 23:34:53,909 autoreload 11024 7748 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 23:34:55,107 autoreload 17912 3036 Watching for file changes with StatReloader
+INFO 2025-09-29 23:43:45,035 autoreload 17912 3036 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 23:43:46,211 autoreload 11248 4280 Watching for file changes with StatReloader
+INFO 2025-09-29 23:44:56,129 autoreload 11248 4280 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 23:44:57,367 autoreload 10404 6516 Watching for file changes with StatReloader
+INFO 2025-09-29 23:45:12,484 autoreload 10404 6516 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 23:45:13,490 autoreload 10164 15908 Watching for file changes with StatReloader
+INFO 2025-09-29 23:48:49,119 autoreload 10164 15908 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-29 23:55:38,586 autoreload 18556 18560 Watching for file changes with StatReloader
+INFO 2025-09-29 23:55:41,077 basehttp 18556 18616 "GET /settings/ HTTP/1.1" 200 43589
+INFO 2025-09-29 23:55:41,539 basehttp 18556 18616 "GET /static/logo.png HTTP/1.1" 200 2203
+INFO 2025-09-29 23:55:45,838 basehttp 18556 18820 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:55:45,928 basehttp 18556 18820 "GET /settings/ HTTP/1.1" 200 43598
+INFO 2025-09-29 23:55:46,653 basehttp 18556 18820 "GET /static/logo.png HTTP/1.1" 200 2203
+ERROR 2025-09-29 23:56:04,312 email_service 18556 18820 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-29 23:56:04,397 basehttp 18556 18820 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:56:04,540 basehttp 18556 18820 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-29 23:56:07,011 basehttp 18556 18820 "GET /settings/ HTTP/1.1" 200 43612
+INFO 2025-09-29 23:56:22,710 basehttp 18556 18616 "GET /settings/ HTTP/1.1" 200 43222
+INFO 2025-09-29 23:56:25,277 basehttp 18556 18616 "GET /delete-account/ HTTP/1.1" 200 13339
+ERROR 2025-09-29 23:56:42,659 email_service 18556 18616 Error sending account notification: weatherapp/email/account_notification.html
+INFO 2025-09-29 23:56:43,058 basehttp 18556 18616 "POST /delete-account/ HTTP/1.1" 302 0
+INFO 2025-09-29 23:56:43,130 basehttp 18556 18616 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-29 23:57:04,355 basehttp 18556 18616 "GET /signup/ HTTP/1.1" 200 7268
+INFO 2025-09-29 23:57:06,004 basehttp 18556 18616 "GET /login/ HTTP/1.1" 200 5127
+INFO 2025-09-29 23:57:10,787 basehttp 18556 18616 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 23:59:08,044 basehttp 18556 18616 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-29 23:59:56,138 basehttp 18556 18616 "POST /login/ HTTP/1.1" 200 5346
+INFO 2025-09-30 18:22:44,255 autoreload 19060 17644 Watching for file changes with StatReloader
+INFO 2025-09-30 21:13:30,221 basehttp 19060 7060 "GET /settings/ HTTP/1.1" 200 43245
+INFO 2025-09-30 21:32:49,640 autoreload 19060 17644 C:\Users\NGUGI\Climascope\weatherproject\settings.py changed, reloading.
+INFO 2025-09-30 21:32:52,288 autoreload 8872 3552 Watching for file changes with StatReloader
+INFO 2025-09-30 21:33:11,373 autoreload 8872 3552 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-30 21:33:12,404 autoreload 14348 9200 Watching for file changes with StatReloader
+INFO 2025-09-30 21:40:30,324 autoreload 14348 9200 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-30 21:40:31,434 autoreload 16816 9948 Watching for file changes with StatReloader
+WARNING 2025-09-30 21:47:11,168 log 16816 12332 Forbidden (CSRF token missing.): /login/
+WARNING 2025-09-30 21:47:11,170 basehttp 16816 12332 "POST /login/ HTTP/1.1" 403 2506
+WARNING 2025-09-30 21:47:11,441 log 16816 12332 Not Found: /favicon.ico
+WARNING 2025-09-30 21:47:11,446 basehttp 16816 12332 "GET /favicon.ico HTTP/1.1" 404 6054
+WARNING 2025-09-30 21:47:19,579 base 16816 14980 Session data corrupted
+INFO 2025-09-30 21:47:19,646 basehttp 16816 14980 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-30 21:47:19,703 basehttp 16816 14980 "GET /login/?next=/dashboard/ HTTP/1.1" 200 5127
+INFO 2025-09-30 21:47:24,892 basehttp 16816 14980 "POST /login/?next=/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-30 21:47:37,692 basehttp 16816 12332 "GET / HTTP/1.1" 200 22913
+INFO 2025-09-30 21:47:39,701 basehttp 16816 14980 "GET /home/ HTTP/1.1" 200 33168
+INFO 2025-09-30 21:47:47,532 basehttp 16816 14980 "GET /settings/ HTTP/1.1" 200 43245
+ERROR 2025-09-30 21:47:49,972 email_service 16816 14980 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-30 21:47:50,150 basehttp 16816 14980 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-30 21:47:50,395 basehttp 16816 14980 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-30 21:47:52,653 basehttp 16816 14980 "GET /settings/ HTTP/1.1" 200 43612
+INFO 2025-09-30 21:48:34,292 email_service 16816 14980 Daily summary disabled for user purityngugi
+INFO 2025-09-30 21:48:34,404 basehttp 16816 14980 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-30 21:48:34,534 basehttp 16816 14980 "GET /settings/ HTTP/1.1" 200 43633
+INFO 2025-09-30 21:48:55,630 email_service 16816 14980 Notifications disabled for user purityngugi
+INFO 2025-09-30 21:48:55,672 basehttp 16816 14980 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-30 21:48:55,765 basehttp 16816 14980 "GET /settings/ HTTP/1.1" 200 43610
+INFO 2025-09-30 21:49:17,048 basehttp 16816 14980 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-30 21:49:17,121 basehttp 16816 14980 "GET /settings/ HTTP/1.1" 200 43598
+INFO 2025-09-30 22:59:12,929 autoreload 16816 9948 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-30 22:59:14,737 autoreload 11688 368 Watching for file changes with StatReloader
+INFO 2025-09-30 22:59:36,135 autoreload 11688 368 C:\Users\NGUGI\Climascope\weatherapp\views.py changed, reloading.
+INFO 2025-09-30 22:59:37,052 autoreload 1868 11800 Watching for file changes with StatReloader
+INFO 2025-09-30 23:00:29,760 autoreload 14840 10888 Watching for file changes with StatReloader
+INFO 2025-09-30 23:03:12,257 basehttp 14840 14636 "GET /settings/ HTTP/1.1" 200 43245
+ERROR 2025-09-30 23:03:14,654 email_service 14840 14636 Error sending verification email to ngugipurityn@gmail.com: weatherapp/email/email_verification.html
+INFO 2025-09-30 23:03:14,683 basehttp 14840 14636 "GET /resend-verification/ HTTP/1.1" 302 0
+INFO 2025-09-30 23:03:14,728 basehttp 14840 14636 "GET /profile/ HTTP/1.1" 200 20109
+INFO 2025-09-30 23:03:16,611 basehttp 14840 14636 "GET /settings/ HTTP/1.1" 200 43612
+INFO 2025-09-30 23:04:41,025 basehttp 14840 14636 "GET /settings/ HTTP/1.1" 200 42891
+INFO 2025-09-30 23:05:07,953 basehttp 14840 14636 "GET /settings/ HTTP/1.1" 200 42891
+ERROR 2025-09-30 23:05:19,165 email_service 14840 14636 Error sending daily weather summary to ngugipurityn@gmail.com: weatherapp/email/daily_summary.html
+INFO 2025-09-30 23:05:19,186 basehttp 14840 14636 "POST /test-notifications/ HTTP/1.1" 302 0
+ERROR 2025-09-30 23:05:19,366 email_service 14840 1184 Error sending daily weather summary to ngugipurityn@gmail.com: weatherapp/email/daily_summary.html
+INFO 2025-09-30 23:05:19,398 basehttp 14840 1184 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-30 23:05:19,458 basehttp 14840 1184 "GET /settings/ HTTP/1.1" 200 43279
+ERROR 2025-09-30 23:05:26,524 email_service 14840 1184 Error sending weather alert email to ngugipurityn@gmail.com: weatherapp/email/weather_alert.html
+INFO 2025-09-30 23:05:26,564 basehttp 14840 1184 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-30 23:05:26,610 basehttp 14840 1184 "GET /settings/ HTTP/1.1" 200 43256
+ERROR 2025-09-30 23:05:31,091 email_service 14840 1184 Error sending welcome email to ngugipurityn@gmail.com: weatherapp/email/welcome_email.html
+INFO 2025-09-30 23:05:31,115 basehttp 14840 1184 "POST /test-notifications/ HTTP/1.1" 302 0
+INFO 2025-09-30 23:05:31,157 basehttp 14840 1184 "GET /settings/ HTTP/1.1" 200 43244
+ERROR 2025-09-30 23:15:10,396 email_service 2224 19424 Error sending welcome email to ngugipurityn@gmail.com: weatherapp/email/welcome_email.html
+INFO 2025-09-30 23:38:26,872 autoreload 14840 10888 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-30 23:38:28,034 autoreload 4068 8200 Watching for file changes with StatReloader
+ERROR 2025-09-30 23:40:30,013 email_service 16076 9032 Error sending welcome email to ngugipurityn@gmail.com: email/welcome_email.html
+ERROR 2025-09-30 23:40:33,069 email_service 16076 9032 Error sending daily weather summary to ngugipurityn@gmail.com: email/daily_summary.html
+ERROR 2025-09-30 23:40:33,094 email_service 16076 9032 Error sending weather alert email to ngugipurityn@gmail.com: email/weather_alert.html
+INFO 2025-09-30 23:44:27,547 autoreload 4068 8200 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-30 23:44:28,779 autoreload 16740 7472 Watching for file changes with StatReloader
+INFO 2025-09-30 23:47:40,239 autoreload 16740 7472 C:\Users\NGUGI\Climascope\weatherapp\email_service.py changed, reloading.
+INFO 2025-09-30 23:47:41,452 autoreload 11568 12896 Watching for file changes with StatReloader
+INFO 2025-09-30 23:48:08,246 email_service 19092 19200 Welcome email sent to ngugipurityn@gmail.com
+ERROR 2025-09-30 23:48:11,166 email_service 19092 19200 Error sending daily weather summary to ngugipurityn@gmail.com: Could not parse some characters: weather_data|first|.temperature||default:"--"
+INFO 2025-09-30 23:48:13,722 email_service 19092 19200 Weather alert email sent to ngugipurityn@gmail.com
+INFO 2025-09-30 23:51:02,803 email_service 2236 5420 Daily weather summary sent to ngugipurityn@gmail.com

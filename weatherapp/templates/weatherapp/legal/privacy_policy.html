@@ -1,0 +1,200 @@
+{% extends 'weatherapp/base.html' %}
+{% block title %}Privacy Policy - Climascope{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="glass-card p-5">
+                <h1 class="mb-4 text-center"><i class="fas fa-shield-alt me-3"></i>Privacy Policy</h1>
+                <p class="text-center text-muted mb-5">Last updated: {{ "now"|date:"F d, Y" }}</p>
+                
+                <div class="privacy-content">
+                    <section class="mb-5">
+                        <h2 class="mb-3">1. Information We Collect</h2>
+                        <h4>Personal Information</h4>
+                        <p>When you create an account with Climascope, we collect:</p>
+                        <ul>
+                            <li>Your name and email address</li>
+                            <li>Username and encrypted password</li>
+                            <li>Profile information you choose to provide</li>
+                            <li>Location data (if you provide it)</li>
+                        </ul>
+                        
+                        <h4>Usage Data</h4>
+                        <p>We automatically collect information about how you use our service:</p>
+                        <ul>
+                            <li>Weather search history</li>
+                            <li>Favorite cities and alert preferences</li>
+                            <li>Usage patterns and feature interactions</li>
+                            <li>Device information and browser type</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">2. How We Use Your Information</h2>
+                        <p>We use your information to:</p>
+                        <ul>
+                            <li>Provide personalized weather information and forecasts</li>
+                            <li>Send weather alerts and notifications based on your preferences</li>
+                            <li>Improve our services and develop new features</li>
+                            <li>Communicate with you about your account and our services</li>
+                            <li>Ensure the security and integrity of our platform</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">3. Information Sharing</h2>
+                        <p>We do not sell, trade, or otherwise transfer your personal information to third parties, except:</p>
+                        <ul>
+                            <li><strong>Service Providers:</strong> Trusted third parties who assist us in operating our service</li>
+                            <li><strong>Legal Compliance:</strong> When required by law or to protect our rights</li>
+                            <li><strong>Business Transfers:</strong> In the event of a merger or acquisition</li>
+                        </ul>
+                        
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            We use OpenWeatherMap API for weather data and Google Custom Search for city images. Please review their privacy policies for information about their data practices.
+                        </div>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">4. Data Security</h2>
+                        <p>We implement appropriate security measures to protect your information:</p>
+                        <ul>
+                            <li>Encryption of sensitive data in transit and at rest</li>
+                            <li>Regular security audits and updates</li>
+                            <li>Limited access to personal data on a need-to-know basis</li>
+                            <li>Secure authentication and password protection</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">5. Your Rights</h2>
+                        <p>You have the right to:</p>
+                        <ul>
+                            <li><strong>Access:</strong> Request copies of your personal data</li>
+                            <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
+                            <li><strong>Erasure:</strong> Request deletion of your personal data</li>
+                            <li><strong>Portability:</strong> Receive your data in a structured format</li>
+                            <li><strong>Objection:</strong> Object to processing of your personal data</li>
+                        </ul>
+                        
+                        <div class="alert alert-success">
+                            <i class="fas fa-user-cog me-2"></i>
+                            You can exercise most of these rights directly through your account settings or by contacting us.
+                        </div>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">6. Cookies and Tracking</h2>
+                        <p>We use cookies and similar technologies to:</p>
+                        <ul>
+                            <li>Remember your login status and preferences</li>
+                            <li>Analyze usage patterns to improve our service</li>
+                            <li>Provide personalized content and recommendations</li>
+                        </ul>
+                        <p>You can control cookie settings through your browser preferences.</p>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">7. Data Retention</h2>
+                        <p>We retain your information for as long as necessary to:</p>
+                        <ul>
+                            <li>Provide you with our services</li>
+                            <li>Comply with legal obligations</li>
+                            <li>Resolve disputes and enforce agreements</li>
+                        </ul>
+                        <p>You can request deletion of your account and associated data at any time.</p>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">8. Children's Privacy</h2>
+                        <p>Climascope is not intended for children under 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it.</p>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">9. International Data Transfers</h2>
+                        <p>Your information may be processed and stored in countries other than your own. We ensure appropriate safeguards are in place to protect your data during international transfers.</p>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">10. Changes to This Policy</h2>
+                        <p>We may update this privacy policy from time to time. We will notify you of any material changes by:</p>
+                        <ul>
+                            <li>Posting the updated policy on our website</li>
+                            <li>Sending you an email notification</li>
+                            <li>Displaying a prominent notice in our app</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-5">
+                        <h2 class="mb-3">11. Contact Us</h2>
+                        <p>If you have any questions about this privacy policy or our data practices, please contact us:</p>
+                        <div class="contact-info bg-light p-4 rounded">
+                            <p><strong>Email:</strong> privacy@climascope.com</p>
+                            <p><strong>Address:</strong> Climascope Privacy Team<br>
+                            123 Weather Street<br>
+                            Climate City, CC 12345</p>
+                            <p class="mb-0"><strong>Contact Form:</strong> <a href="{% url 'contact_us' %}">Contact Us</a></p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.privacy-content h2 {
+    color: #4dabf7;
+    border-bottom: 2px solid rgba(77, 171, 247, 0.3);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-content h4 {
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-content ul {
+    margin-bottom: 1.5rem;
+}
+
+.privacy-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.alert {
+    background: rgba(77, 171, 247, 0.1);
+    border: 1px solid rgba(77, 171, 247, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.alert-info {
+    background: rgba(23, 162, 184, 0.1);
+    border-color: rgba(23, 162, 184, 0.3);
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1);
+    border-color: rgba(40, 167, 69, 0.3);
+}
+</style>
+{% endblock %}

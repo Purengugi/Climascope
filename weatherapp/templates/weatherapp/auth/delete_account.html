@@ -1,0 +1,348 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Climascope</title>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        
+        .delete-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            padding: 3rem;
+            width: 100%;
+            max-width: 800px;
+            color: white;
+            border-left: 5px solid #dc3545;
+        }
+        
+        .danger-icon {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .danger-icon i {
+            font-size: 4rem;
+            color: #dc3545;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .delete-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #dc3545;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .warning-box {
+            background: rgba(220, 53, 69, 0.1);
+            border: 2px solid rgba(220, 53, 69, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .warning-box h5 {
+            color: #dc3545;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .consequences-list {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .consequences-list h6 {
+            color: #dc3545;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .consequences-list ul {
+            margin-bottom: 0;
+        }
+        
+        .consequences-list li {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(220, 53, 69, 0.5);
+            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+            color: white;
+        }
+        
+        .form-check-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .form-check-input:checked {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        .form-check-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(45deg, #dc3545, #c82333);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-danger:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+        }
+        
+        .btn-danger:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .brand-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .brand-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .data-summary {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .data-summary h6 {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+        
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="delete-card">
+                    <div class="text-center mb-3">
+                        <a href="{% url 'home' %}" class="brand-link">
+                            <i class="fas fa-cloud-sun me-2"></i>Climascope
+                        </a>
+                    </div>
+                    
+                    <div class="danger-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    
+                    <h2 class="delete-title">Delete Account Permanently</h2>
+                    
+                    <div class="warning-box">
+                        <h5><i class="fas fa-skull-crossbones me-2"></i>PERMANENT ACTION</h5>
+                        <p class="mb-0">This action cannot be undone. Your account and all associated data will be permanently deleted.</p>
+                    </div>
+                    
+                    <div class="data-summary">
+                        <h6><i class="fas fa-database me-2"></i>Data that will be permanently deleted:</h6>
+                        <div class="data-item">
+                            <span>Weather search history</span>
+                            <span>{{ total_searches }} searches</span>
+                        </div>
+                        <div class="data-item">
+                            <span>Favorite cities</span>
+                            <span>{{ favorite_count }} cities</span>
+                        </div>
+                        <div class="data-item">
+                            <span>Weather alerts</span>
+                            <span>{{ total_alerts }} alerts</span>
+                        </div>
+                        <div class="data-item">
+                            <span>Profile information</span>
+                            <span>All data</span>
+                        </div>
+                        <div class="data-item">
+                            <span>Account created</span>
+                            <span>{{ user.date_joined|date:"M d, Y" }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="consequences-list">
+                        <h6><i class="fas fa-exclamation-circle me-2"></i>Before you proceed:</h6>
+                        <ul>
+                            <li><strong>All your data will be permanently erased</strong></li>
+                            <li>Your username will become available for others to use</li>
+                            <li>You will stop receiving all notifications immediately</li>
+                            <li>This action cannot be reversed or undone</li>
+                            <li>You will need to create a new account to use Climascope again</li>
+                        </ul>
+                    </div>
+                    
+                    <form method="POST" id="deleteForm">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Type "DELETE" to confirm permanent deletion:</label>
+                            <input type="text" name="confirmation" class="form-control" 
+                                   placeholder="Type DELETE here" id="confirmationInput" required>
+                            <small class="form-text text-muted">This must be typed exactly as shown</small>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" name="confirm_deletion" 
+                                   id="confirmDeletion" required>
+                            <label class="form-check-label" for="confirmDeletion">
+                                I understand this action is permanent and cannot be undone
+                            </label>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" name="confirm_data_loss" 
+                                   id="confirmDataLoss" required>
+                            <label class="form-check-label" for="confirmDataLoss">
+                                I understand that all my data will be permanently deleted
+                            </label>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'profile' %}" class="btn btn-secondary me-md-2">
+                                <i class="fas fa-arrow-left me-2"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-danger" id="deleteButton" disabled>
+                                <i class="fas fa-trash me-2"></i>Delete Account Forever
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <small class="text-muted">
+                            Need a break instead? 
+                            <a href="{% url 'deactivate_account' %}" class="text-warning">Deactivate temporarily</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const confirmationInput = document.getElementById('confirmationInput');
+            const confirmDeletion = document.getElementById('confirmDeletion');
+            const confirmDataLoss = document.getElementById('confirmDataLoss');
+            const deleteButton = document.getElementById('deleteButton');
+            const deleteForm = document.getElementById('deleteForm');
+            
+            function checkFormValidity() {
+                const isDeleteTyped = confirmationInput.value.trim() === 'DELETE';
+                const isDeletionConfirmed = confirmDeletion.checked;
+                const isDataLossConfirmed = confirmDataLoss.checked;
+                
+                deleteButton.disabled = !(isDeleteTyped && isDeletionConfirmed && isDataLossConfirmed);
+                
+                // Change button appearance based on validity
+                if (deleteButton.disabled) {
+                    deleteButton.style.opacity = '0.5';
+                } else {
+                    deleteButton.style.opacity = '1';
+                }
+            }
+            
+            // Add event listeners
+            confirmationInput.addEventListener('input', checkFormValidity);
+            confirmDeletion.addEventListener('change', checkFormValidity);
+            confirmDataLoss.addEventListener('change', checkFormValidity);
+            
+            // Add final confirmation
+            deleteForm.addEventListener('submit', function(e) {
+                if (!confirm('Are you absolutely sure you want to delete your account? This action cannot be undone.')) {
+                    e.preventDefault();
+                }
+            });
+            
+            // Initial check
+            checkFormValidity();
+        });
+    </script>
+</body>
+</html>

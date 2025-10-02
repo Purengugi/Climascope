@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deleted - Climascope</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .message-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .feedback-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .footer {
+            background: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Account Deleted</h1>
+        </div>
+        
+        <div class="content">
+            <div class="icon">🗑️</div>
+            
+            <h2>Your account has been permanently deleted</h2>
+            
+            <div class="message-box">
+                <p><strong>Hi {{ user.first_name|default:user.username }},</strong></p>
+                <p>Your Climascope account and all associated data have been permanently deleted as requested. This action cannot be undone.</p>
+            </div>
+            
+            <div style="margin: 30px 0;">
+                <h4>What was deleted:</h4>
+                <p style="color: #718096;">
+                    ❌ Your weather search history<br>
+                    ❌ Your favorite cities and alert settings<br>
+                    ❌ Your profile information<br>
+                    ❌ All notification preferences<br>
+                    ❌ Your account credentials
+                </p>
+            </div>
+            
+            <div class="feedback-section">
+                <h4>Thank you for using Climascope</h4>
+                <p>We're sorry to see you go. Your feedback helps us improve our service for everyone. If you'd like to share why you left or have suggestions for improvement, please feel free to contact us.</p>
+            </div>
+            
+            <p style="margin-top: 30px; color: #718096;">
+                If you ever want to use Climascope again, you're welcome to create a new account anytime.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>This is a final confirmation that your account has been deleted.</p>
+            <p><strong>Climascope</strong> - Thank you for being part of our community</p>
+        </div>
+    </div>
+</body>
+</html>

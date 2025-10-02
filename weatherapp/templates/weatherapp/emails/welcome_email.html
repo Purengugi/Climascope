@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Climascope</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .welcome-box {
+            background: linear-gradient(135deg, #4dabf7 0%, #1b345e 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+            text-align: center;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid #4dabf7;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+        }
+        .footer {
+            background: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .tips-section {
+            background: #e6fffa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Climascope!</h1>
+            <p>Your weather journey starts here</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-box">
+                <h2>Hi {{ user.first_name|default:user.username }}!</h2>
+                <p>Your email has been verified and your account is now active. Welcome to the Climascope community!</p>
+            </div>
+            
+            <h3>What you can do now:</h3>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h4>Save Favorite Cities</h4>
+                    <p>Add cities you care about and get instant weather updates for all of them.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h4>Custom Alerts</h4>
+                    <p>Set temperature thresholds and get alerts for rain, storms, and extreme weather.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Weather Analytics</h4>
+                    <p>Track weather patterns and view detailed analytics in your personal dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h4>Daily Summaries</h4>
+                    <p>Receive personalized daily weather summaries for your favorite cities.</p>
+                </div>
+            </div>
+            
+            <div class="tips-section">
+                <h4>💡 Getting Started Tips:</h4>
+                <ul>
+                    <li><strong>Add your first city:</strong> Search for your location and click the heart icon to save it as a favorite</li>
+                    <li><strong>Customize alerts:</strong> Visit Settings to set up weather notifications that matter to you</li>
+                    <li><strong>Enable daily summaries:</strong> Get a morning email with weather updates for all your cities</li>
+                    <li><strong>Explore the dashboard:</strong> View trends, analytics, and insights about your weather data</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="#" class="btn">Start Exploring Weather</a>
+                <a href="#" class="btn">Customize Settings</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This email was sent to {{ user.email }} because you just verified your Climascope account.</p>
+            <p><strong>Climascope</strong> - Your Personal Weather Companion</p>
+        </div>
+    </div>
+</body>
+</html>

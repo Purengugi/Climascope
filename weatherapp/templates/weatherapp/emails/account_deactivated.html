@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deactivated - Climascope</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .message-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .reactivation-steps {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .reactivation-steps h4 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+        .reactivation-steps ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .reactivation-steps li {
+            margin: 8px 0;
+            color: #4a5568;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 20px 10px;
+        }
+        .footer {
+            background: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Account Deactivated</h1>
+        </div>
+        
+        <div class="content">
+            <div class="icon">⏸️</div>
+            
+            <h2>Your account has been deactivated</h2>
+            
+            <div class="message-box">
+                <p><strong>Hi {{ user.first_name|default:user.username }},</strong></p>
+                <p>Your Climascope account has been temporarily deactivated as requested. We're sad to see you go, but we understand everyone needs a break sometimes.</p>
+            </div>
+            
+            <div class="reactivation-steps">
+                <h4>🔄 Want to come back?</h4>
+                <p>Your account can be reactivated anytime by following these simple steps:</p>
+                <ol>
+                    <li>Visit the Climascope login page</li>
+                    <li>Enter your username and password</li>
+                    <li>Your account will be automatically reactivated</li>
+                    <li>All your data (favorites, history) will still be there!</li>
+                </ol>
+            </div>
+            
+            <a href="#" class="btn">Reactivate My Account</a>
+            
+            <div style="margin-top: 30px;">
+                <h4>What's preserved:</h4>
+                <p style="color: #718096;">
+                    ✅ Your weather search history<br>
+                    ✅ Your favorite cities and alert settings<br>
+                    ✅ Your profile information<br>
+                    ✅ Your account preferences
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>If you have any questions or need assistance, please contact our support team.</p>
+            <p><strong>Climascope</strong> - We'll be here when you're ready to return</p>
+        </div>
+    </div>
+</body>
+</html>

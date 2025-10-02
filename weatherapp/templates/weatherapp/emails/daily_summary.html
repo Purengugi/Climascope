@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Weather Summary - Climascope</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .weather-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+        .city-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .temperature {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .description {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+        }
+        .weather-details {
+            display: flex;
+            justify-content: space-around;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        .weather-details div {
+            text-align: center;
+        }
+        .weather-details .label {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .summary-stats {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .stat-item {
+            flex: 1;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tips-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+        }
+        .tips-section h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .tip-item {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .tip-item::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .footer {
+            background: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e0e0e 0%, #1b345e 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        @media (max-width: 600px) {
+            .weather-grid {
+                grid-template-columns: 1fr;
+            }
+            .summary-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌤️ Daily Weather Summary</h1>
+            <p>{{ date|date:"F d, Y" }} • Good {{ date|date:"A"|lower }}, {{ user.first_name|default:user.username }}!</p>
+        </div>
+        
+        <div class="summary-stats">
+    <div class="stat-item">
+        <span class="stat-number">{{ weather_data|length }}</span>
+        <div class="stat-label">Cities Tracked</div>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number">
+            {% if weather_data %}
+                {% with first_city=weather_data.0 %}
+                    {{ first_city.temperature|default:"--" }}°
+                {% endwith %}
+            {% else %}
+                --
+            {% endif %}
+        </span>
+        <div class="stat-label">Avg Temperature</div>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number">
+            {% with rainy_cities=weather_data|length %}
+                {% for weather in weather_data %}
+                    {% if "rain" in weather.description or "drizzle" in weather.description %}
+                        {{ forloop.counter }}
+                    {% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+            {% endwith %}
+        </span>
+        <div class="stat-label">Rainy Cities</div>
+    </div>
+</div>
+
+            <h2 style="color: #4a5568; margin-bottom: 20px;">☀️ Your Favorite Cities</h2>
+            
+            <div class="weather-grid">
+                {% for weather in weather_data %}
+                <div class="weather-card">
+                    <div class="city-name">{{ weather.city }}{% if weather.country %}, {{ weather.country }}{% endif %}</div>
+                    <div class="temperature">{{ weather.temperature|floatformat:0 }}°C</div>
+                    <div class="description">{{ weather.description }}</div>
+                    <div class="weather-details">
+                        <div>
+                            <strong>{{ weather.feels_like|floatformat:0 }}°</strong>
+                            <span class="label">Feels Like</span>
+                        </div>
+                        <div>
+                            <strong>{{ weather.humidity }}%</strong>
+                            <span class="label">Humidity</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Weather Tips -->
+            <div class="tips-section">
+                <h3>🎯 Today's Weather Tips</h3>
+                {% for weather in weather_data %}
+                    {% if weather.temperature > 30 %}
+                        <div class="tip-item">Stay hydrated in {{ weather.city }} - it's quite hot today at {{ weather.temperature }}°C!</div>
+                    {% elif weather.temperature < 5 %}
+                        <div class="tip-item">Bundle up in {{ weather.city }} - it's cold at {{ weather.temperature }}°C today.</div>
+                    {% elif "rain" in weather.description %}
+                        <div class="tip-item">Don't forget an umbrella in {{ weather.city }} - rain is expected!</div>
+                    {% elif "cloud" in weather.description %}
+                        <div class="tip-item">Overcast conditions in {{ weather.city }} - perfect for outdoor activities!</div>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if not weather_data %}
+                    <div class="tip-item">Add some favorite cities to get personalized weather tips!</div>
+                {% endif %}
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="#" class="btn">View Full Forecast</a>
+                <a href="#" class="btn">Manage Your Cities</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This summary was sent to {{ user.email }} because you have daily summaries enabled.</p>
+            <p>
+                <a href="#" style="color: #667eea;">Manage Email Preferences</a> |
+                <a href="#" style="color: #667eea;">Add More Cities</a> |
+                <a href="#" style="color: #667eea;">Unsubscribe</a>
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Climascope</strong> - Your Personal Weather Companion<br>
+                © {{ "now"|date:"Y" }} Climascope. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
